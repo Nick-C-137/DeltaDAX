@@ -1,0 +1,332 @@
+table Calendar
+	lineageTag: 7cb27d2d-63fc-4b2f-a426-21e19a7edeef
+	dataCategory: Time
+
+	column Date
+		dataType: dateTime
+		isKey
+		formatString: Long Date
+		lineageTag: 9cadddd0-362e-4184-9256-355060e72a20
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Date int'
+		dataType: int64
+		formatString: 0
+		lineageTag: d0eed30b-6812-41fc-876d-2dd3b1d5fc15
+		summarizeBy: sum
+		sourceColumn: Date int
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 621548e1-f861-4801-b96f-d438e4f9a906
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Days in Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3948af49-f2c0-45ab-b271-47dcef1e5f29
+		summarizeBy: sum
+		sourceColumn: Days in Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Month'
+		dataType: string
+		lineageTag: 482ef0aa-1063-44c7-b472-a263cc008223
+		summarizeBy: none
+		sourceColumn: Year Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Month int'
+		dataType: string
+		lineageTag: f41d2e86-31bd-40d7-80d2-e54400547fed
+		summarizeBy: none
+		sourceColumn: Year Month int
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Year (ENG)'
+		dataType: string
+		lineageTag: 9e73c87d-a56d-4901-b965-31d6e3a188f7
+		summarizeBy: none
+		sourceColumn: Month Year (ENG)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Year (DK)'
+		dataType: string
+		lineageTag: 2b19b7bd-e5d7-44da-a7fb-e445d815fa17
+		summarizeBy: none
+		sourceColumn: Month Year (DK)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Year (ENG) short'
+		dataType: string
+		lineageTag: 85da16c4-e83e-457a-b50e-015b588f925c
+		summarizeBy: none
+		sourceColumn: Month Year (ENG) short
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Year (DK) short'
+		dataType: string
+		lineageTag: f003f6f7-ccb8-4e7e-bae3-20e8919a76bf
+		summarizeBy: none
+		sourceColumn: Month Year (DK) short
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: c6517d5b-aadc-411b-a465-fd5d1555946d
+		summarizeBy: sum
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name (ENG)'
+		dataType: string
+		lineageTag: 963891b1-bd88-478a-88b8-44d90c0f887b
+		summarizeBy: none
+		sourceColumn: Month Name (ENG)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name (DK)'
+		dataType: string
+		lineageTag: 2e55ca5f-84f5-4376-a047-0af9f0d07530
+		summarizeBy: none
+		sourceColumn: Month Name (DK)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day of Month'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6b78be21-f72e-4f0a-a000-cd4cb94997de
+		summarizeBy: sum
+		sourceColumn: Day of Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Days in Month'
+		dataType: int64
+		formatString: 0
+		lineageTag: e7950b05-33ec-4c7b-aff9-700b6c34ebf4
+		summarizeBy: sum
+		sourceColumn: Days in Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'First Date of Month'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 0ce29f53-8912-452a-9cc3-3c9791efaab4
+		summarizeBy: none
+		sourceColumn: First Date of Month
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'End Date of Month'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: fa4cd1fd-cbdd-473f-ac58-f192a6607caf
+		summarizeBy: none
+		sourceColumn: End Date of Month
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Quarter int'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4c518760-63b7-464b-8f96-fbd53c7bd602
+		summarizeBy: sum
+		sourceColumn: Quarter int
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: string
+		lineageTag: a647026e-9b46-472e-8534-269b6a132e9a
+		summarizeBy: none
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Quarter'
+		dataType: string
+		lineageTag: 063771bc-6fae-442c-a62f-0afc7ed68132
+		summarizeBy: none
+		sourceColumn: Year Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Quarter int'
+		dataType: int64
+		formatString: 0
+		lineageTag: b1ac3de5-f262-4a55-8ad1-a7bd4cad7128
+		summarizeBy: sum
+		sourceColumn: Year Quarter int
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Days in Quarter'
+		dataType: int64
+		formatString: 0
+		lineageTag: d33acc69-7735-455f-9663-3ba402d1ecb7
+		summarizeBy: sum
+		sourceColumn: Days in Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Week No'
+		dataType: int64
+		formatString: 0
+		lineageTag: ac424c11-49a6-42c4-b557-9496883e0e2c
+		summarizeBy: sum
+		sourceColumn: Week No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Next Week No'
+		dataType: int64
+		formatString: 0
+		lineageTag: 225c27f9-11a4-49cb-8f94-1572e7a674a2
+		summarizeBy: sum
+		sourceColumn: Next Week No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Week (Calendar)'
+		dataType: string
+		lineageTag: 096172f2-db25-4e6c-a348-538578b088c1
+		summarizeBy: none
+		sourceColumn: Year Week (Calendar)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Week (Calendar) int'
+		dataType: int64
+		formatString: 0
+		lineageTag: 397a4743-3295-4b85-aa14-7ae4cd92c885
+		summarizeBy: sum
+		sourceColumn: Year Week (Calendar) int
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Week Day No'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2eb2c435-5c44-4c16-997b-50a367bddd2d
+		summarizeBy: sum
+		sourceColumn: Week Day No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Week Day (ENG)'
+		dataType: string
+		lineageTag: cf7f2690-d710-4edd-a325-39a6e3fc23d5
+		summarizeBy: none
+		sourceColumn: Week Day (ENG)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Week Day (DK)'
+		dataType: string
+		lineageTag: 883da87f-f5bb-4a00-a830-9397f9f19029
+		summarizeBy: none
+		sourceColumn: Week Day (DK)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'First Date of Week'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 26f74c99-5169-4cb4-8ae5-c36a89571d6c
+		summarizeBy: none
+		sourceColumn: First Date of Week
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IsHoliday (DK)'
+		dataType: int64
+		formatString: 0
+		lineageTag: e5e1dba9-3ebb-4030-8a0e-278686f0216b
+		summarizeBy: sum
+		sourceColumn: IsHoliday (DK)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HolidayName (DK)'
+		dataType: string
+		lineageTag: 9f7356e3-8835-4ad3-b074-aa88a233b6a8
+		summarizeBy: none
+		sourceColumn: HolidayName (DK)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Offset Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: 622aff16-a4ac-4d67-8352-efb04112a846
+		summarizeBy: sum
+		sourceColumn: Offset Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Offset Quarter'
+		dataType: int64
+		formatString: 0
+		lineageTag: 48c931a2-ca98-45a4-9d92-24898113a8f4
+		summarizeBy: sum
+		sourceColumn: Offset Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Offset Month'
+		dataType: int64
+		formatString: 0
+		lineageTag: e8b5baee-c116-4d07-adc8-3e507eb4c592
+		summarizeBy: sum
+		sourceColumn: Offset Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Offset Date'
+		dataType: int64
+		formatString: 0
+		lineageTag: 743ea13c-4a99-4f2b-85d5-e27ac27522cc
+		summarizeBy: sum
+		sourceColumn: Offset Date
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calendar = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost\SQLEXPRESS", "northwind"),
+				    dwh_Calendar = Source{[Schema="dwh",Item="Calendar"]}[Data]
+				in
+				    dwh_Calendar
+
+	annotation PBI_ResultType = Table
+

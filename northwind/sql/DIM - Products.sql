@@ -1,3 +1,6 @@
+DROP VIEW IF EXISTS dwh.[~ DIM - Products] 
+GO
+
 CREATE VIEW dwh.[~ DIM - Products] AS
 WITH
 

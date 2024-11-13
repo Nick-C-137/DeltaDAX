@@ -1,0 +1,110 @@
+table '~ DIM - Customers'
+	lineageTag: 36d34d59-842a-4a4f-b88f-5c9eb948853c
+
+	column '_BK - Customers'
+		dataType: string
+		lineageTag: 053c4948-458a-4d9d-8ad3-201f9d1fd690
+		summarizeBy: none
+		sourceColumn: _BK - Customers
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerID
+		dataType: string
+		lineageTag: fe02d1ae-a84d-4289-bd00-2e116bf06f5c
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		lineageTag: f55c6711-59da-49ab-9e18-b4aa5c037b45
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContactName
+		dataType: string
+		lineageTag: 86d7771d-bf2d-4683-aaf5-9aa1f08cef14
+		summarizeBy: none
+		sourceColumn: ContactName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContactTitle
+		dataType: string
+		lineageTag: b63358ac-3b1b-436a-939e-12d564b9d866
+		summarizeBy: none
+		sourceColumn: ContactTitle
+
+		annotation SummarizationSetBy = Automatic
+
+	column Address
+		dataType: string
+		lineageTag: 02215cc8-00c1-45b9-814c-907415369a77
+		summarizeBy: none
+		sourceColumn: Address
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: cbda0e3a-79f3-48d3-acd1-af5ed86b72ce
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: d3af2045-3f04-474f-b3f9-5966468130b4
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: string
+		lineageTag: d9e987c7-21dc-4ffa-a3d3-bb6afd58c3d4
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column u
+		dataType: string
+		lineageTag: 8966d3b8-52fa-463c-9683-06a82f350e23
+		summarizeBy: none
+		sourceColumn: u
+
+		annotation SummarizationSetBy = Automatic
+
+	column Phone
+		dataType: string
+		lineageTag: f34a0135-fed1-4c94-a50a-2d2e48a17d73
+		summarizeBy: none
+		sourceColumn: Phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fax
+		dataType: string
+		lineageTag: 36a9aaf1-e2a8-4137-a09c-24f1557aaba4
+		summarizeBy: none
+		sourceColumn: Fax
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '~ DIM - Customers' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost\SQLEXPRESS", "northwind"),
+				    #"dwh_~ DIM - Customers" = Source{[Schema="dwh",Item="~ DIM - Customers"]}[Data]
+				in
+				    #"dwh_~ DIM - Customers"
+
+	annotation PBI_ResultType = Table
+

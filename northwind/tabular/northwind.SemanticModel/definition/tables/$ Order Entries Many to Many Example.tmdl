@@ -1,0 +1,131 @@
+table '$ Order Entries Many to Many Example'
+	lineageTag: ce518388-c560-426e-bb45-a7ee3b33949b
+
+	column '_BK - Customers'
+		dataType: string
+		lineageTag: e01c3d5a-abb8-4115-896a-642bd108a8f2
+		summarizeBy: none
+		sourceColumn: _BK - Customers
+
+		annotation SummarizationSetBy = Automatic
+
+	column '_BK - Employees'
+		dataType: int64
+		formatString: 0
+		lineageTag: 877b1d1f-e17f-4345-a91a-34f9f125d44a
+		summarizeBy: sum
+		sourceColumn: _BK - Employees
+
+		annotation SummarizationSetBy = Automatic
+
+	column '_BK - Shippers'
+		dataType: int64
+		formatString: 0
+		lineageTag: 732d2061-dcd9-4091-84f9-03d48b8ecfe7
+		summarizeBy: none
+		sourceColumn: _BK - Shippers
+
+		annotation SummarizationSetBy = Automatic
+
+	column '_BK - Locations'
+		dataType: string
+		lineageTag: b47a9bfc-938f-4f1c-ba33-c4dbbffef9c3
+		summarizeBy: none
+		sourceColumn: _BK - Locations
+
+		annotation SummarizationSetBy = Automatic
+
+	column '_DK - Calendar | Order Date *'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 48551bc0-053f-4726-aa78-998c824bd7f6
+		summarizeBy: none
+		sourceColumn: _DK - Calendar | Order Date *
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column '_DK - Calendar | Required Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: db1f8582-7765-4088-a6f1-30504cbf7e4e
+		summarizeBy: none
+		sourceColumn: _DK - Calendar | Required Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column '_DK - Calendar | Shipped Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2dc86e44-2275-4771-bd4d-83e45c5cd7d0
+		summarizeBy: none
+		sourceColumn: _DK - Calendar | Shipped Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column '_MM - Products / CategoryID <>'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5320029f-d312-446b-91bc-e9292f16416a
+		summarizeBy: sum
+		sourceColumn: _MM - Products / CategoryID <>
+
+		annotation SummarizationSetBy = Automatic
+
+	column '_MS - Freight'
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: dd536ff0-cf9c-44ba-861f-6e7fd5c4e864
+		summarizeBy: sum
+		sourceColumn: _MS - Freight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column '_MS - Quantity'
+		dataType: int64
+		formatString: 0
+		lineageTag: 10f2f4d0-3985-48be-8d65-93650da11405
+		summarizeBy: sum
+		sourceColumn: _MS - Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column '_MS - Discount'
+		dataType: double
+		lineageTag: 923bb577-ab95-4080-b699-03e2c8e39f2f
+		summarizeBy: sum
+		sourceColumn: _MS - Discount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column '_MS - Unit Price'
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: f4355034-441e-48f6-9213-8614ce3beeb6
+		summarizeBy: sum
+		sourceColumn: _MS - Unit Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	partition '$ Order Entries Many to Many Example' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost\SQLEXPRESS", "northwind"),
+				    #"dwh_$ Order Entries Many to Many Example" = Source{[Schema="dwh",Item="$ Order Entries Many to Many Example"]}[Data]
+				in
+				    #"dwh_$ Order Entries Many to Many Example"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,30 @@
+table '~ BRI - Shippers Bridge Example to Customers'
+	lineageTag: 663528b8-6dec-4b2c-9684-ec757691a5e4
+
+	column '_BK - Customers'
+		dataType: string
+		lineageTag: bf67ce30-d126-4f37-b3dc-3d8826cc6270
+		summarizeBy: none
+		sourceColumn: _BK - Customers
+
+		annotation SummarizationSetBy = Automatic
+
+	column '_BK - Shippers Bridge Example'
+		dataType: string
+		lineageTag: 7492dc14-3fae-496d-b6b4-e3c0f2b63e1f
+		summarizeBy: none
+		sourceColumn: _BK - Shippers Bridge Example
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '~ BRI - Shippers Bridge Example to Customers' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost\SQLEXPRESS", "northwind"),
+				    #"dwh_~ BRI - Shippers Bridge Example to Customers" = Source{[Schema="dwh",Item="~ BRI - Shippers Bridge Example to Customers"]}[Data]
+				in
+				    #"dwh_~ BRI - Shippers Bridge Example to Customers"
+
+	annotation PBI_ResultType = Table
+

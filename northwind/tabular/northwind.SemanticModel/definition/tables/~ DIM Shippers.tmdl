@@ -1,0 +1,48 @@
+table '~ DIM Shippers'
+	lineageTag: d1251d0f-b845-4505-a458-32fafb917cd3
+
+	column '_BK - Shippers'
+		dataType: int64
+		formatString: 0
+		lineageTag: bdb2148b-321a-4027-ad0a-695f3450e59a
+		summarizeBy: none
+		sourceColumn: _BK - Shippers
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShipperID
+		dataType: int64
+		formatString: 0
+		lineageTag: e9c307b9-84e4-43c7-9827-eebb08733e16
+		summarizeBy: count
+		sourceColumn: ShipperID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		lineageTag: b61e2669-1d1b-4107-8cad-74cf1e9f6bf3
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Phone
+		dataType: string
+		lineageTag: 7f7627a3-3947-4366-9578-30a8b9a1535f
+		summarizeBy: none
+		sourceColumn: Phone
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '~ DIM Shippers' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost\SQLEXPRESS", "northwind"),
+				    #"dwh_~ DIM Shippers" = Source{[Schema="dwh",Item="~ DIM Shippers"]}[Data]
+				in
+				    #"dwh_~ DIM Shippers"
+
+	annotation PBI_ResultType = Table
+

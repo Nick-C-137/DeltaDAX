@@ -1,0 +1,34 @@
+relationship AutoDetected_1da6094a-ee99-436b-b7d2-8574eec84116
+	fromColumn: '$ Order Entries Many BKs Example'.'_BK - Products'
+	toColumn: '~ DIM - Products'.'_BK - Products'
+
+relationship AutoDetected_840b5e71-8072-4683-bdc1-813e89b55e87
+	fromColumn: '$ Order Entries'.'_BK - Products'
+	toColumn: '~ DIM - Products'.'_BK - Products'
+
+relationship AutoDetected_1fab9f81-b612-407f-8cc6-6c90f399aca7
+	fromColumn: '$ Order Entries Many BKs Example'.'_BK - Shippers'
+	toColumn: '~ DIM Shippers'.'_BK - Shippers'
+
+relationship AutoDetected_d08d0766-6f1e-4e93-abed-951db118eef7
+	fromColumn: '$ Order Entries'.'_BK - Shippers'
+	toColumn: '~ DIM Shippers'.'_BK - Shippers'
+
+relationship AutoDetected_e2937573-afd1-407f-a1c1-0075bd33f0da
+	fromColumn: '$ Order Entries Many to Many Example'.'_BK - Shippers'
+	toColumn: '~ DIM Shippers'.'_BK - Shippers'
+
+relationship AutoDetected_efe91c96-f4e5-451b-b998-7f78743804e5
+	fromColumn: '$ Order Entries'.'_BK - Locations'
+	toColumn: '~ DIM - Locations'.'_BK - Locations'
+
+relationship AutoDetected_49de244a-5de6-4e57-a079-452da53f7a63
+	fromColumn: '$ Order Entries Many to Many Example'.'_BK - Locations'
+	toColumn: '~ DIM - Locations'.'_BK - Locations'
+
+relationship AutoDetected_6e0ee4d0-23fc-4bc7-a72f-a319c4283db0
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: '~ DIM Shippers'.Phone
+	toColumn: '~ DIM - Shippers Bridge Example'.Phone
+

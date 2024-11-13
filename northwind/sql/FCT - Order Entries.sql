@@ -1,3 +1,6 @@
+DROP VIEW IF EXISTS dwh.[$ Order Entries] 
+GO
+
 CREATE VIEW dwh.[$ Order Entries] AS
 WITH 
 

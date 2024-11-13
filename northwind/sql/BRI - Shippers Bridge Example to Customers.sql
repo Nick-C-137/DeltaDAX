@@ -1,4 +1,7 @@
-CREATE VIEW [~ BRI - Shippers Bridge Example to Customers] AS
+DROP VIEW IF EXISTS dwh.[~ BRI - Shippers Bridge Example to Customers]
+GO 
+
+CREATE VIEW dwh.[~ BRI - Shippers Bridge Example to Customers] AS
 WITH
 
 customer_table as (

@@ -1,3 +1,6 @@
+DROP VIEW IF EXISTS dwh.[~ DIM Shippers] 
+GO
+
 CREATE VIEW dwh.[~ DIM Shippers] AS
 WITH
 

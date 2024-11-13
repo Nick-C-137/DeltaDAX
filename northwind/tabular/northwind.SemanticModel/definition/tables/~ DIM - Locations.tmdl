@@ -1,0 +1,62 @@
+table '~ DIM - Locations'
+	lineageTag: 261a4908-fcda-43ab-9a9c-7025047f5bad
+
+	column '_BK - Locations'
+		dataType: string
+		lineageTag: 1f3db917-46f1-417d-8fef-9a8977e845c5
+		summarizeBy: none
+		sourceColumn: _BK - Locations
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ship Address'
+		dataType: string
+		lineageTag: fbb791d8-4ab3-4541-ba31-b5715a36bc6b
+		summarizeBy: none
+		sourceColumn: Ship Address
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ship City'
+		dataType: string
+		lineageTag: fd1d02fd-3f27-46bd-a88b-1fd1bcae9a6a
+		summarizeBy: none
+		sourceColumn: Ship City
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ship Region'
+		dataType: string
+		lineageTag: b1e27b92-85a0-4dc4-b41f-44cec1a00e7f
+		summarizeBy: none
+		sourceColumn: Ship Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ship Postal Code'
+		dataType: string
+		lineageTag: 3bda538a-0f39-485d-b66f-00990cb05fa6
+		summarizeBy: none
+		sourceColumn: Ship Postal Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ship Country'
+		dataType: string
+		lineageTag: 6177f502-c383-44ea-96db-8c6749de72d2
+		summarizeBy: none
+		sourceColumn: Ship Country
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '~ DIM - Locations' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost\SQLEXPRESS", "northwind"),
+				    #"dwh_~ DIM - Locations" = Source{[Schema="dwh",Item="~ DIM - Locations"]}[Data]
+				in
+				    #"dwh_~ DIM - Locations"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,29 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.138.782.0 (24.11)
+
+annotation PBI_ProTooling = ["DevMode"]
+
+annotation PBI_QueryOrder = ["$ Order Entries Many BKs Example","$ Order Entries","$ Order Entries Many to Many Example","~ DIM - Customers","~ BRI - Shippers Bridge Example to Customers","~ DIM - Locations","~ DIM - Products","~ DIM - Shippers Bridge Example","~ DIM Shippers","Calendar"]
+
+ref table '$ Order Entries Many BKs Example'
+ref table '$ Order Entries'
+ref table '~ DIM - Customers'
+ref table '~ BRI - Shippers Bridge Example to Customers'
+ref table '$ Order Entries Many to Many Example'
+ref table '~ DIM - Locations'
+ref table '~ DIM - Products'
+ref table '~ DIM - Shippers Bridge Example'
+ref table '~ DIM Shippers'
+ref table Calendar
+
+ref cultureInfo en-US
+

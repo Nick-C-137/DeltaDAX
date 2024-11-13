@@ -1,3 +1,6 @@
+DROP VIEW IF EXISTS dwh.[$ Order Entries Many BKs Example] 
+GO
+
 CREATE VIEW dwh.[$ Order Entries Many BKs Example] AS
 WITH 
 

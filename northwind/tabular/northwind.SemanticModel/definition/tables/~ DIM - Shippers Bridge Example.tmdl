@@ -1,0 +1,48 @@
+table '~ DIM - Shippers Bridge Example'
+	lineageTag: a0448a85-ec94-44ea-88fe-a878509c640d
+
+	column '_BK - Shippers Bridge Example'
+		dataType: int64
+		formatString: 0
+		lineageTag: d694130e-5f6e-4aa8-b8d3-e9b08158f539
+		summarizeBy: sum
+		sourceColumn: _BK - Shippers Bridge Example
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShipperID
+		dataType: int64
+		formatString: 0
+		lineageTag: baeaed04-d35d-48ef-a74e-3dd1ebcbc841
+		summarizeBy: count
+		sourceColumn: ShipperID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		lineageTag: a72e4526-0cee-41c5-bcb6-de3b2671ae29
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Phone
+		dataType: string
+		lineageTag: ca8847cd-de58-493b-b494-b8b67b8f9f52
+		summarizeBy: none
+		sourceColumn: Phone
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '~ DIM - Shippers Bridge Example' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost\SQLEXPRESS", "northwind"),
+				    #"dwh_~ DIM - Shippers Bridge Example" = Source{[Schema="dwh",Item="~ DIM - Shippers Bridge Example"]}[Data]
+				in
+				    #"dwh_~ DIM - Shippers Bridge Example"
+
+	annotation PBI_ResultType = Table
+
