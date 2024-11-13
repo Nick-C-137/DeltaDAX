@@ -6,7 +6,7 @@ CREATE VIEW dwh.[~ DIM - Customers] AS
 WITH
 base as (
     SELECT
-         [_BK - Customers] = CustomerID
+         [_BK - Customers] = CAST(CustomerID AS NVARCHAR(100))
         ,[CustomerID]
         ,[CompanyName]
         ,[ContactName]
@@ -15,9 +15,10 @@ base as (
         ,[City]
         ,[Region]
         ,[PostalCode]
-        ,[Country]u
+        ,[Country]
         ,[Phone]
         ,[Fax]
+        ,last_updated = GETDATE()
     FROM
         dbo.Customers
     WHERE

@@ -1,0 +1,159 @@
+table Products
+	lineageTag: 7c6bd2b1-538d-4798-b111-4067b7d81d16
+
+	column _Inferred
+		isHidden
+		displayFolder: 99. Tech
+		lineageTag: bff95263-8ca8-47c3-a47f-c05ab482a07c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [_Inferred]
+
+	column '_BK - Products'
+		isHidden
+		isKey
+		displayFolder: 99. Tech
+		lineageTag: c2ead0ea-b441-4f27-97e2-7ad896fb1948
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [_BK - Products]
+
+	column ProductID
+		displayFolder: 03. Attributes
+		lineageTag: 88c61218-4596-4c6c-acaa-b4eaecf1744c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ProductID]
+
+	column ProductName
+		displayFolder: 03. Attributes
+		lineageTag: 91b6fdd1-eed3-4e6d-83ab-3d1583863601
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ProductName]
+
+	column SupplierID
+		displayFolder: 03. Attributes
+		lineageTag: a67b714f-301d-4060-8418-339b4563e55b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [SupplierID]
+
+	column CategoryID
+		displayFolder: 03. Attributes
+		lineageTag: 65e5be46-d0b7-407f-bbc5-03b3a64df1fd
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [CategoryID]
+
+	column QuantityPerUnit
+		displayFolder: 03. Attributes
+		lineageTag: 7c7e947f-11f9-4168-8fdd-665acd3f1391
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [QuantityPerUnit]
+
+	column UnitPrice
+		displayFolder: 03. Attributes
+		lineageTag: 2f37733b-8d14-4e86-9120-fea8f038e84b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [UnitPrice]
+
+	column UnitsInStock
+		displayFolder: 03. Attributes
+		lineageTag: 689b828d-b40f-4042-9034-e212f52da672
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [UnitsInStock]
+
+	column UnitsOnOrder
+		displayFolder: 03. Attributes
+		lineageTag: eacea955-f1c9-4544-93a4-c2c71d37bd84
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [UnitsOnOrder]
+
+	column ReorderLevel
+		displayFolder: 03. Attributes
+		lineageTag: 87152319-d5ea-4e09-9a1c-14e8470fba0e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ReorderLevel]
+
+	column Discontinued
+		displayFolder: 03. Attributes
+		lineageTag: 4e32921b-6726-4230-a3f9-b513ca352223
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Discontinued]
+
+	column last_updated
+		displayFolder: 03. Attributes
+		lineageTag: 85b1a6fb-d111-4d94-bafb-5f316ae1441f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [last_updated]
+
+	partition Products = calculated
+		mode: import
+		source = ```
+				var _dimension_table = CALCULATETABLE('~ DIM - Products')
+				
+				var _dimension = 
+				    SELECTCOLUMNS(
+				        _dimension_table,
+				        "_Inferred", FALSE(),
+				        "_BK - Products", '~ DIM - Products'[_BK - Products],
+						"ProductID", '~ DIM - Products'[ProductID],
+						"ProductName", '~ DIM - Products'[ProductName],
+						"SupplierID", '~ DIM - Products'[SupplierID],
+						"CategoryID", '~ DIM - Products'[CategoryID],
+						"QuantityPerUnit", '~ DIM - Products'[QuantityPerUnit],
+						"UnitPrice", '~ DIM - Products'[UnitPrice],
+						"UnitsInStock", '~ DIM - Products'[UnitsInStock],
+						"UnitsOnOrder", '~ DIM - Products'[UnitsOnOrder],
+						"ReorderLevel", '~ DIM - Products'[ReorderLevel],
+						"Discontinued", '~ DIM - Products'[Discontinued],
+						"last_updated", '~ DIM - Products'[last_updated]
+				
+				    )
+				
+				var _inferred_bks =
+				    UNION(
+						SELECTCOLUMNS(EXCEPT(VALUES('$ Order Entries Many BKs Example'[_BK - Products]), VALUES('~ DIM - Products'[_BK - Products])), "_BK - Products", '$ Order Entries Many BKs Example'[_BK - Products]),
+						SELECTCOLUMNS(EXCEPT(VALUES('$ Order Entries'[_BK - Products]), VALUES('~ DIM - Products'[_BK - Products])), "_BK - Products", '$ Order Entries'[_BK - Products])
+					)
+				    
+				
+				var _inferred_rows =
+				    SELECTCOLUMNS(
+				        DISTINCT(_inferred_bks),
+				        "_Inferred", TRUE(),
+				        "_BK - Products", [_BK - Products],
+						"ProductID", 0,
+						"ProductName", "-",
+						"SupplierID", 0,
+						"CategoryID", 0,
+						"QuantityPerUnit", "-",
+						"UnitPrice", 0,
+						"UnitsInStock", 0,
+						"UnitsOnOrder", 0,
+						"ReorderLevel", 0,
+						"Discontinued", FALSE(),
+						"last_updated", DATE(9999, 1, 1)
+				
+				    )
+				
+				var _combined =
+				    UNION(
+				        _inferred_rows,
+				        _dimension           
+				    )
+				
+				return
+				    _combined
+				```
+
+	annotation TabularEditor_TableGroup = 🗃 Dimension Tables
+

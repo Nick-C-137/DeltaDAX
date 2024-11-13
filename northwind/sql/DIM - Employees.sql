@@ -3,7 +3,7 @@ GO
 
 CREATE VIEW dwh.[~ DIM - Employees] AS
 SELECT
-     [_BK - Employees] = EmployeeID
+     [_BK - Employees] = CAST(EmployeeID AS NVARCHAR(100))
     ,[EmployeeID]
     ,[LastName]
     ,[FirstName]
@@ -21,6 +21,7 @@ SELECT
     ,[Notes]
     ,[ReportsTo]
     ,[PhotoPath]
+    ,last_updated = GETDATE()
 FROM
     dbo.Employees
 WHERE

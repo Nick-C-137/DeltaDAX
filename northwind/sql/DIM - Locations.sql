@@ -18,6 +18,7 @@ base as (
        ,[Ship Region]               = ShipRegion
        ,[Ship Postal Code]          = ShipPostalCode
        ,[Ship Country]              = ShipCountry
+       ,last_updated = GETDATE()
     FROM
         dbo.Orders
 )

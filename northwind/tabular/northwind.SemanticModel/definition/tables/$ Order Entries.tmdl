@@ -3,6 +3,7 @@ table '$ Order Entries'
 
 	column '_BK - Customers'
 		dataType: string
+		displayFolder: 99. Tech
 		lineageTag: d720fffd-98ff-4187-a8d8-01609b6accb9
 		summarizeBy: none
 		sourceColumn: _BK - Customers
@@ -10,17 +11,17 @@ table '$ Order Entries'
 		annotation SummarizationSetBy = Automatic
 
 	column '_BK - Employees'
-		dataType: int64
-		formatString: 0
+		dataType: string
+		displayFolder: 99. Tech
 		lineageTag: 7cd7a7cd-7437-4c01-bb87-fbb0bddb6afd
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: _BK - Employees
 
 		annotation SummarizationSetBy = Automatic
 
 	column '_BK - Products'
-		dataType: int64
-		formatString: 0
+		dataType: string
+		displayFolder: 99. Tech
 		lineageTag: 76c0c898-8730-48ad-b0d0-a3d05315e91b
 		summarizeBy: none
 		sourceColumn: _BK - Products
@@ -28,8 +29,8 @@ table '$ Order Entries'
 		annotation SummarizationSetBy = Automatic
 
 	column '_BK - Shippers'
-		dataType: int64
-		formatString: 0
+		dataType: string
+		displayFolder: 99. Tech
 		lineageTag: be984ed1-28ac-445b-be73-1f7a81393c5f
 		summarizeBy: none
 		sourceColumn: _BK - Shippers
@@ -38,6 +39,7 @@ table '$ Order Entries'
 
 	column '_BK - Locations'
 		dataType: string
+		displayFolder: 99. Tech
 		lineageTag: beec0213-c351-4d3e-96cd-cd5032386c21
 		summarizeBy: none
 		sourceColumn: _BK - Locations
@@ -47,6 +49,7 @@ table '$ Order Entries'
 	column '_DK - Calendar / Order Date *'
 		dataType: dateTime
 		formatString: Long Date
+		displayFolder: 99. Tech
 		lineageTag: e96b8136-42d9-453c-9faa-ba621186b595
 		summarizeBy: none
 		sourceColumn: _DK - Calendar / Order Date *
@@ -58,6 +61,7 @@ table '$ Order Entries'
 	column '_DK - Calendar / Required Date'
 		dataType: dateTime
 		formatString: Long Date
+		displayFolder: 99. Tech
 		lineageTag: 5c0a539c-1bcd-467c-85c8-d6d3671fa522
 		summarizeBy: none
 		sourceColumn: _DK - Calendar / Required Date
@@ -69,6 +73,7 @@ table '$ Order Entries'
 	column '_DK - Calendar / Shipped Date'
 		dataType: dateTime
 		formatString: Long Date
+		displayFolder: 99. Tech
 		lineageTag: f744b363-baee-442f-b4e9-a514ad8a7037
 		summarizeBy: none
 		sourceColumn: _DK - Calendar / Shipped Date
@@ -80,8 +85,9 @@ table '$ Order Entries'
 	column '_MS - Freight'
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: 98. Key Figures
 		lineageTag: d6cc9e1d-0966-4491-bd33-e7f6bbc5cf2e
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: _MS - Freight
 
 		annotation SummarizationSetBy = Automatic
@@ -91,16 +97,18 @@ table '$ Order Entries'
 	column '_MS - Quantity'
 		dataType: int64
 		formatString: 0
+		displayFolder: 98. Key Figures
 		lineageTag: c6c8a0cb-f6e5-4e8f-adc2-a70b573913c2
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: _MS - Quantity
 
 		annotation SummarizationSetBy = Automatic
 
 	column '_MS - Discount'
 		dataType: double
+		displayFolder: 98. Key Figures
 		lineageTag: db99c68c-2744-41b7-9f10-0ee6836ce8f7
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: _MS - Discount
 
 		annotation SummarizationSetBy = Automatic
@@ -110,13 +118,24 @@ table '$ Order Entries'
 	column '_MS - Unit Price'
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: 98. Key Figures
 		lineageTag: cf8d39af-7778-4b34-95e7-091dd69f51c4
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: _MS - Unit Price
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column last_updated
+		dataType: dateTime
+		formatString: General Date
+		displayFolder: 01. Line Items
+		lineageTag: c8db071c-520e-49e1-8dae-76243110a876
+		summarizeBy: none
+		sourceColumn: last_updated
+
+		annotation SummarizationSetBy = Automatic
 
 	partition '$ Order Entries' = m
 		mode: import
@@ -126,4 +145,8 @@ table '$ Order Entries'
 				    #"dwh_$ Order Entries" = Source{[Schema="dwh",Item="$ Order Entries"]}[Data]
 				in
 				    #"dwh_$ Order Entries"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

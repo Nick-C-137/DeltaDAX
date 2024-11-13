@@ -1,0 +1,173 @@
+table '~ DIM - Employees'
+	lineageTag: 59ab787d-9d82-4710-96e7-e70f8df0901f
+
+	column '_BK - Employees'
+		dataType: string
+		lineageTag: 7a9c101a-cfd8-406b-b365-5582d0bd983b
+		summarizeBy: none
+		sourceColumn: _BK - Employees
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeID
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b13517f-1b25-4075-aec2-498c32dca985
+		summarizeBy: count
+		sourceColumn: EmployeeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: 206a954d-d884-4dd7-a855-69a906425a09
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: 52d7384e-39bc-4ba6-8758-5a2da98846b6
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		lineageTag: 55506b3b-63f5-4cda-89af-4ea767d0f5e6
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column TitleOfCourtesy
+		dataType: string
+		lineageTag: f6062de1-f7a4-4664-a5f2-cead6015ce00
+		summarizeBy: none
+		sourceColumn: TitleOfCourtesy
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8a27dc39-fa20-4ef0-a9df-0c636935b516
+		summarizeBy: none
+		sourceColumn: BirthDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column HireDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6b8064b5-76a1-48cf-ac7c-e22648d919ab
+		summarizeBy: none
+		sourceColumn: HireDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Address
+		dataType: string
+		lineageTag: 1940d673-b8ab-476e-8842-44a1e8655bdc
+		summarizeBy: none
+		sourceColumn: Address
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 5bb7effc-a002-40ec-a3be-e43b5e65f672
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 1de4b323-52b2-4f3c-ab78-ac918fff5356
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: string
+		lineageTag: a885700f-beb1-476e-b23e-19788d8d6cbc
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 46bd2f1b-39a7-46b9-91f5-11eb36b6ea18
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column HomePhone
+		dataType: string
+		lineageTag: 74cb0aa7-f89e-4536-b317-2ba5881c6d05
+		summarizeBy: none
+		sourceColumn: HomePhone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Extension
+		dataType: string
+		lineageTag: 48cf9c58-f887-4d18-85dc-c9a10ecc7c6f
+		summarizeBy: none
+		sourceColumn: Extension
+
+		annotation SummarizationSetBy = Automatic
+
+	column Notes
+		dataType: string
+		lineageTag: 70bbe02f-4be1-4e24-907e-1fef0171718a
+		summarizeBy: none
+		sourceColumn: Notes
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReportsTo
+		dataType: int64
+		formatString: 0
+		lineageTag: 3d99c534-2a7f-43d7-8b6b-545d164afb32
+		summarizeBy: sum
+		sourceColumn: ReportsTo
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhotoPath
+		dataType: string
+		lineageTag: 4578f6bd-ad87-4d93-a45e-fed8334c46f3
+		summarizeBy: none
+		sourceColumn: PhotoPath
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_updated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0871121d-eac6-4f86-9130-289804417349
+		summarizeBy: none
+		sourceColumn: last_updated
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '~ DIM - Employees' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost\SQLEXPRESS", "northwind"),
+				    #"dwh_~ DIM Shippers" = Source{[Schema="dwh",Item="~ DIM - Employees"]}[Data]
+				in
+				    #"dwh_~ DIM Shippers"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

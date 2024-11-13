@@ -12,9 +12,9 @@ base as (
 )
 
 SELECT
-    [_BK - Customers]           = a.CustomerID
-   ,[_BK - Employees]           = a.EmployeeID
-   ,[_BK - Shippers]            = a.ShipVia
+    [_BK - Customers]           = CAST(a.CustomerID AS NVARCHAR(100))
+   ,[_BK - Employees]           = CAST(a.EmployeeID AS NVARCHAR(100))
+   ,[_BK - Shippers]            = CAST(a.ShipVia AS NVARCHAR(100))
    ,[_BK - Locations]           = CONCAT(
                                      a.ShipAddress
                                     ,a.ShipCity
@@ -30,6 +30,7 @@ SELECT
    ,[_MS - Quantity]                        = b.Quantity
    ,[_MS - Discount]                        = b.Discount
    ,[_MS - Unit Price]                      = b.UnitPrice
+   ,last_updated = GETDATE()
 FROM
     base as a
 JOIN

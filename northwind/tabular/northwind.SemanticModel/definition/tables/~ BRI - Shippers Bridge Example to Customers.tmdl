@@ -17,6 +17,15 @@ table '~ BRI - Shippers Bridge Example to Customers'
 
 		annotation SummarizationSetBy = Automatic
 
+	column last_updated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9a9eef02-1d97-45f6-9e04-557ff61a412c
+		summarizeBy: none
+		sourceColumn: last_updated
+
+		annotation SummarizationSetBy = Automatic
+
 	partition '~ BRI - Shippers Bridge Example to Customers' = m
 		mode: import
 		source =
@@ -27,4 +36,6 @@ table '~ BRI - Shippers Bridge Example to Customers'
 				    #"dwh_~ BRI - Shippers Bridge Example to Customers"
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

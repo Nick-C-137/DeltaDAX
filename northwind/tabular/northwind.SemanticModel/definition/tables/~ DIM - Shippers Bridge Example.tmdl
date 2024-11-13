@@ -2,10 +2,9 @@ table '~ DIM - Shippers Bridge Example'
 	lineageTag: a0448a85-ec94-44ea-88fe-a878509c640d
 
 	column '_BK - Shippers Bridge Example'
-		dataType: int64
-		formatString: 0
+		dataType: string
 		lineageTag: d694130e-5f6e-4aa8-b8d3-e9b08158f539
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: _BK - Shippers Bridge Example
 
 		annotation SummarizationSetBy = Automatic
@@ -35,6 +34,15 @@ table '~ DIM - Shippers Bridge Example'
 
 		annotation SummarizationSetBy = Automatic
 
+	column last_updated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 76445292-3a58-4035-a1a0-9ae90d3d7acc
+		summarizeBy: none
+		sourceColumn: last_updated
+
+		annotation SummarizationSetBy = Automatic
+
 	partition '~ DIM - Shippers Bridge Example' = m
 		mode: import
 		source =
@@ -45,4 +53,6 @@ table '~ DIM - Shippers Bridge Example'
 				    #"dwh_~ DIM - Shippers Bridge Example"
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

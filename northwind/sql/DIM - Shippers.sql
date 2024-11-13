@@ -6,10 +6,11 @@ WITH
 
 base as (
     SELECT
-         [_BK - Shippers] = ShipperID
+         [_BK - Shippers] = CAST(ShipperID AS NVARCHAR(100))
         ,[ShipperID]
         ,[CompanyName]
         ,[Phone]
+        ,last_updated = GETDATE()
     FROM
         dbo.Shippers
 )

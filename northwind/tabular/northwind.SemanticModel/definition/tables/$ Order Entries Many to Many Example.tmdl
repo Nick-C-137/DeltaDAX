@@ -3,6 +3,7 @@ table '$ Order Entries Many to Many Example'
 
 	column '_BK - Customers'
 		dataType: string
+		displayFolder: 99. Tech
 		lineageTag: e01c3d5a-abb8-4115-896a-642bd108a8f2
 		summarizeBy: none
 		sourceColumn: _BK - Customers
@@ -10,17 +11,17 @@ table '$ Order Entries Many to Many Example'
 		annotation SummarizationSetBy = Automatic
 
 	column '_BK - Employees'
-		dataType: int64
-		formatString: 0
+		dataType: string
+		displayFolder: 99. Tech
 		lineageTag: 877b1d1f-e17f-4345-a91a-34f9f125d44a
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: _BK - Employees
 
 		annotation SummarizationSetBy = Automatic
 
 	column '_BK - Shippers'
-		dataType: int64
-		formatString: 0
+		dataType: string
+		displayFolder: 99. Tech
 		lineageTag: 732d2061-dcd9-4091-84f9-03d48b8ecfe7
 		summarizeBy: none
 		sourceColumn: _BK - Shippers
@@ -29,6 +30,7 @@ table '$ Order Entries Many to Many Example'
 
 	column '_BK - Locations'
 		dataType: string
+		displayFolder: 99. Tech
 		lineageTag: b47a9bfc-938f-4f1c-ba33-c4dbbffef9c3
 		summarizeBy: none
 		sourceColumn: _BK - Locations
@@ -38,6 +40,7 @@ table '$ Order Entries Many to Many Example'
 	column '_DK - Calendar | Order Date *'
 		dataType: dateTime
 		formatString: Long Date
+		displayFolder: 99. Tech
 		lineageTag: 48551bc0-053f-4726-aa78-998c824bd7f6
 		summarizeBy: none
 		sourceColumn: _DK - Calendar | Order Date *
@@ -49,6 +52,7 @@ table '$ Order Entries Many to Many Example'
 	column '_DK - Calendar | Required Date'
 		dataType: dateTime
 		formatString: Long Date
+		displayFolder: 99. Tech
 		lineageTag: db1f8582-7765-4088-a6f1-30504cbf7e4e
 		summarizeBy: none
 		sourceColumn: _DK - Calendar | Required Date
@@ -60,6 +64,7 @@ table '$ Order Entries Many to Many Example'
 	column '_DK - Calendar | Shipped Date'
 		dataType: dateTime
 		formatString: Long Date
+		displayFolder: 99. Tech
 		lineageTag: 2dc86e44-2275-4771-bd4d-83e45c5cd7d0
 		summarizeBy: none
 		sourceColumn: _DK - Calendar | Shipped Date
@@ -71,8 +76,9 @@ table '$ Order Entries Many to Many Example'
 	column '_MM - Products / CategoryID <>'
 		dataType: int64
 		formatString: 0
+		displayFolder: 99. Tech
 		lineageTag: 5320029f-d312-446b-91bc-e9292f16416a
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: _MM - Products / CategoryID <>
 
 		annotation SummarizationSetBy = Automatic
@@ -80,8 +86,9 @@ table '$ Order Entries Many to Many Example'
 	column '_MS - Freight'
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: 98. Key Figures
 		lineageTag: dd536ff0-cf9c-44ba-861f-6e7fd5c4e864
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: _MS - Freight
 
 		annotation SummarizationSetBy = Automatic
@@ -91,16 +98,18 @@ table '$ Order Entries Many to Many Example'
 	column '_MS - Quantity'
 		dataType: int64
 		formatString: 0
+		displayFolder: 98. Key Figures
 		lineageTag: 10f2f4d0-3985-48be-8d65-93650da11405
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: _MS - Quantity
 
 		annotation SummarizationSetBy = Automatic
 
 	column '_MS - Discount'
 		dataType: double
+		displayFolder: 98. Key Figures
 		lineageTag: 923bb577-ab95-4080-b699-03e2c8e39f2f
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: _MS - Discount
 
 		annotation SummarizationSetBy = Automatic
@@ -110,13 +119,24 @@ table '$ Order Entries Many to Many Example'
 	column '_MS - Unit Price'
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: 98. Key Figures
 		lineageTag: f4355034-441e-48f6-9213-8614ce3beeb6
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: _MS - Unit Price
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column last_updated
+		dataType: dateTime
+		formatString: General Date
+		displayFolder: 01. Line Items
+		lineageTag: 5d7e50e9-3ed1-4ac3-bfc2-fb8d79c6b933
+		summarizeBy: none
+		sourceColumn: last_updated
+
+		annotation SummarizationSetBy = Automatic
 
 	partition '$ Order Entries Many to Many Example' = m
 		mode: import
@@ -128,4 +148,6 @@ table '$ Order Entries Many to Many Example'
 				    #"dwh_$ Order Entries Many to Many Example"
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

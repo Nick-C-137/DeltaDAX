@@ -106,10 +106,22 @@
         },
         {
           "location": {
+            "x": 1819.4724503926793,
+            "y": 422.5616776843126
+          },
+          "nodeIndex": "Calendar",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
             "x": 692.27598567149585,
             "y": 343.05248883246884
           },
-          "nodeIndex": "~ DIM Shippers",
+          "nodeIndex": "~ DIM - Shippers",
           "size": {
             "height": 176,
             "width": 234
@@ -118,12 +130,142 @@
         },
         {
           "location": {
-            "x": 1819.4724503926793,
+            "x": 2093.4724503926791,
             "y": 422.5616776843126
           },
-          "nodeIndex": "Calendar",
+          "nodeIndex": "~ DIM - Employees",
           "size": {
             "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2367.4724503926791,
+            "y": 422.5616776843126
+          },
+          "nodeIndex": "📊 Metrics",
+          "nodeLineageTag": "be9cc669-edfb-473b-ac7b-d17095aa1734",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2651.4724503926791,
+            "y": 508.5616776843126
+          },
+          "nodeIndex": "# Use Relationships",
+          "nodeLineageTag": "3a8939bf-303d-4edb-a1c4-eee616f5cc4a",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2935.4724503926791,
+            "y": 472.5616776843126
+          },
+          "nodeIndex": "📊 Metrics (local)",
+          "nodeLineageTag": "992ffbaa-f3d3-45f1-a5a3-ec1028bd8004",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3219.4724503926791,
+            "y": 508.5616776843126
+          },
+          "nodeIndex": "$ Last Updated",
+          "nodeLineageTag": "8abab1be-4d52-4c96-967a-a60eb7668255",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3503.4724503926791,
+            "y": 422.5616776843126
+          },
+          "nodeIndex": "Customers",
+          "nodeLineageTag": "18ba9f65-3768-4d36-9a51-1665a7c053ca",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3787.4724503926791,
+            "y": 422.5616776843126
+          },
+          "nodeIndex": "Employees",
+          "nodeLineageTag": "fd5e4734-9fe4-4ea0-9793-bc2ac6d99856",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4071.4724503926791,
+            "y": 436.5616776843126
+          },
+          "nodeIndex": "Locations",
+          "nodeLineageTag": "0422ffb6-649a-4451-8406-6ae47d2b5671",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4355.4724503926791,
+            "y": 422.5616776843126
+          },
+          "nodeIndex": "Products",
+          "nodeLineageTag": "7c6bd2b1-538d-4798-b111-4067b7d81d16",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4639.4724503926791,
+            "y": 460.5616776843126
+          },
+          "nodeIndex": "Shippers",
+          "nodeLineageTag": "2252bfe7-9068-4fae-aa37-f6d6252f3ab0",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4923.4724503926791,
+            "y": 460.5616776843126
+          },
+          "nodeIndex": "Shippers Bridge Example",
+          "nodeLineageTag": "00a12055-98a9-4278-a330-88b246a1a20a",
+          "size": {
+            "height": 224,
             "width": 234
           },
           "zIndex": 0

@@ -1,0 +1,91 @@
+table '📊 Metrics'
+	lineageTag: be9cc669-edfb-473b-ac7b-d17095aa1734
+
+	/// DeltaDAX: Add_expression_for_column ('$ Order Entries Many BKs Example'[_MS - Freight])
+	measure 'Order Entries Many BKs Example | Freight' = Add_expression_for_column ('$ Order Entries Many BKs Example'[_MS - Freight])
+		formatString: #,##0
+		displayFolder: 000. Order Entries Many BKs Example\00. Base Metrics
+		lineageTag: 41b2257a-7516-4a30-9d50-2e424368ca22
+
+	/// DeltaDAX: Add_expression_for_column ('$ Order Entries Many BKs Example'[_MS - Quantity])
+	measure 'Order Entries Many BKs Example | Quantity' = Add_expression_for_column ('$ Order Entries Many BKs Example'[_MS - Quantity])
+		formatString: #,##0
+		displayFolder: 000. Order Entries Many BKs Example\00. Base Metrics
+		lineageTag: 59e51b95-7b5f-4bd4-a8bb-19aa97203a86
+
+	/// DeltaDAX: Add_expression_for_column ('$ Order Entries Many BKs Example'[_MS - Discount])
+	measure 'Order Entries Many BKs Example | Discount' = Add_expression_for_column ('$ Order Entries Many BKs Example'[_MS - Discount])
+		formatString: #,##0
+		displayFolder: 000. Order Entries Many BKs Example\00. Base Metrics
+		lineageTag: f8aab864-535a-467d-84fc-6c188a1232da
+
+	/// DeltaDAX: Add_expression_for_column ('$ Order Entries Many BKs Example'[_MS - Unit Price])
+	measure 'Order Entries Many BKs Example | Unit Price' = Add_expression_for_column ('$ Order Entries Many BKs Example'[_MS - Unit Price])
+		formatString: #,##0
+		displayFolder: 000. Order Entries Many BKs Example\00. Base Metrics
+		lineageTag: 651d5898-b606-48f8-865e-fb2a242d6968
+
+	/// DeltaDAX: Add_expression_for_column ('$ Order Entries'[_MS - Freight])
+	measure 'Order Entries | Freight' = Add_expression_for_column ('$ Order Entries'[_MS - Freight])
+		formatString: #,##0
+		displayFolder: 000. Order Entries\00. Base Metrics
+		lineageTag: 51b83e08-4864-4da1-8efb-110e5ffacc31
+
+	/// DeltaDAX: Add_expression_for_column ('$ Order Entries'[_MS - Quantity])
+	measure 'Order Entries | Quantity' = Add_expression_for_column ('$ Order Entries'[_MS - Quantity])
+		formatString: #,##0
+		displayFolder: 000. Order Entries\00. Base Metrics
+		lineageTag: 8225a7b0-9b80-48a9-bcc4-b0c618aed9b2
+
+	/// DeltaDAX: Add_expression_for_column ('$ Order Entries'[_MS - Discount])
+	measure 'Order Entries | Discount' = Add_expression_for_column ('$ Order Entries'[_MS - Discount])
+		formatString: #,##0
+		displayFolder: 000. Order Entries\00. Base Metrics
+		lineageTag: 7bdad906-38f4-4d92-b35a-386c0ad807e2
+
+	/// DeltaDAX: Add_expression_for_column ('$ Order Entries'[_MS - Unit Price])
+	measure 'Order Entries | Unit Price' = Add_expression_for_column ('$ Order Entries'[_MS - Unit Price])
+		formatString: #,##0
+		displayFolder: 000. Order Entries\00. Base Metrics
+		lineageTag: 8d33ccaa-b8f5-45e1-804e-56dc8930ce63
+
+	/// DeltaDAX: Add_expression_for_column ('$ Order Entries Many to Many Example'[_MS - Freight])
+	measure 'Order Entries Many to Many Example | Freight' = Add_expression_for_column ('$ Order Entries Many to Many Example'[_MS - Freight])
+		formatString: #,##0
+		displayFolder: 000. Order Entries Many to Many Example\00. Base Metrics
+		lineageTag: 708fb5b0-383c-4316-86e6-ec0e1e3bd2d9
+
+	/// DeltaDAX: Add_expression_for_column ('$ Order Entries Many to Many Example'[_MS - Quantity])
+	measure 'Order Entries Many to Many Example | Quantity' = Add_expression_for_column ('$ Order Entries Many to Many Example'[_MS - Quantity])
+		formatString: #,##0
+		displayFolder: 000. Order Entries Many to Many Example\00. Base Metrics
+		lineageTag: d8946f2b-f495-4779-ac11-71a9f2e47a6f
+
+	/// DeltaDAX: Add_expression_for_column ('$ Order Entries Many to Many Example'[_MS - Discount])
+	measure 'Order Entries Many to Many Example | Discount' = Add_expression_for_column ('$ Order Entries Many to Many Example'[_MS - Discount])
+		formatString: #,##0
+		displayFolder: 000. Order Entries Many to Many Example\00. Base Metrics
+		lineageTag: f1984474-647f-4a04-8a25-006998198b47
+
+	/// DeltaDAX: Add_expression_for_column ('$ Order Entries Many to Many Example'[_MS - Unit Price])
+	measure 'Order Entries Many to Many Example | Unit Price' = Add_expression_for_column ('$ Order Entries Many to Many Example'[_MS - Unit Price])
+		formatString: #,##0
+		displayFolder: 000. Order Entries Many to Many Example\00. Base Metrics
+		lineageTag: 98b783c9-23d9-4069-b277-1e9704663b4e
+
+	column z_dummy
+		isHidden
+		lineageTag: 20822909-cbe1-4cbe-a746-423cf97f810f
+		isNameInferred
+		sourceColumn: [z_dummy]
+
+	partition '📊 Metrics' = calculated
+		mode: import
+		source = ```
+				DATATABLE(
+				    "z_dummy", STRING,
+				    {{}}
+				)
+				
+				```
+

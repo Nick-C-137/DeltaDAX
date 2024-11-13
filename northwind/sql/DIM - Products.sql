@@ -6,7 +6,7 @@ WITH
 
 base as (
     SELECT
-         [_BK - Products] = ProductID
+         [_BK - Products] = CAST(ProductID AS NVARCHAR(100))
         ,[ProductID]
         ,[ProductName]
         ,[SupplierID]
@@ -17,6 +17,7 @@ base as (
         ,[UnitsOnOrder]
         ,[ReorderLevel]
         ,[Discontinued]
+        ,last_updated = GETDATE()
     FROM
         dbo.Products
 )

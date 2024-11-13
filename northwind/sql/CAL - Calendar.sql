@@ -11,5 +11,6 @@ SELECT
 	,[Offset Quarter]				= DATEDIFF(QUARTER, GETDATE(), [Date])
 	,[Offset Month]					= DATEDIFF(MONTH, GETDATE(), [Date])
 	,[Offset Date]					= DATEDIFF(DAY, GETDATE(), [Date])
+    ,last_updated = GETDATE()
     --#endregion
 FROM [_DeltaSYS].[Dates]

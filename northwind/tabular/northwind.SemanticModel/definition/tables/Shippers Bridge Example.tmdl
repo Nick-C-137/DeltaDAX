@@ -1,0 +1,94 @@
+table 'Shippers Bridge Example'
+	lineageTag: 00a12055-98a9-4278-a330-88b246a1a20a
+
+	column _Inferred
+		isHidden
+		displayFolder: 99. Tech
+		lineageTag: f572312c-bd15-47ec-90d8-c8970a775359
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [_Inferred]
+
+	column '_BK - Shippers Bridge Example'
+		isHidden
+		isKey
+		displayFolder: 99. Tech
+		lineageTag: 6d80b078-4fb4-4c61-b3cd-79389fa82963
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [_BK - Shippers Bridge Example]
+
+	column ShipperID
+		displayFolder: 03. Attributes
+		lineageTag: 14a5a384-1047-484f-84aa-dcdcbeb7ec11
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ShipperID]
+
+	column CompanyName
+		displayFolder: 03. Attributes
+		lineageTag: a6343a2a-5a0a-4be0-bb5c-959be47184e6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [CompanyName]
+
+	column Phone
+		displayFolder: 03. Attributes
+		lineageTag: f75548ba-a911-48ec-882d-c845d194ff67
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Phone]
+
+	column last_updated
+		displayFolder: 03. Attributes
+		lineageTag: 4c59164c-3919-48ca-be0a-6c194300eb33
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [last_updated]
+
+	partition 'Shippers Bridge Example' = calculated
+		mode: import
+		source = ```
+				var _dimension_table = CALCULATETABLE('~ DIM - Shippers Bridge Example')
+				
+				var _dimension = 
+				    SELECTCOLUMNS(
+				        _dimension_table,
+				        "_Inferred", FALSE(),
+				        "_BK - Shippers Bridge Example", '~ DIM - Shippers Bridge Example'[_BK - Shippers Bridge Example],
+						"ShipperID", '~ DIM - Shippers Bridge Example'[ShipperID],
+						"CompanyName", '~ DIM - Shippers Bridge Example'[CompanyName],
+						"Phone", '~ DIM - Shippers Bridge Example'[Phone],
+						"last_updated", '~ DIM - Shippers Bridge Example'[last_updated]
+				
+				    )
+				
+				var _inferred_bks =
+				    		SELECTCOLUMNS(EXCEPT(VALUES('~ BRI - Shippers Bridge Example to Customers'[_BK - Shippers Bridge Example]), VALUES('~ DIM - Shippers Bridge Example'[_BK - Shippers Bridge Example])), "_BK - Shippers Bridge Example", '~ BRI - Shippers Bridge Example to Customers'[_BK - Shippers Bridge Example])
+				
+				    
+				
+				var _inferred_rows =
+				    SELECTCOLUMNS(
+				        DISTINCT(_inferred_bks),
+				        "_Inferred", TRUE(),
+				        "_BK - Shippers Bridge Example", [_BK - Shippers Bridge Example],
+						"ShipperID", 0,
+						"CompanyName", "-",
+						"Phone", "-",
+						"last_updated", DATE(9999, 1, 1)
+				
+				    )
+				
+				var _combined =
+				    UNION(
+				        _inferred_rows,
+				        _dimension           
+				    )
+				
+				return
+				    _combined
+				```
+
+	annotation TabularEditor_TableGroup = 🗃 Dimension Tables
+

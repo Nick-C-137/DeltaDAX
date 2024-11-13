@@ -1,0 +1,170 @@
+table Customers
+	lineageTag: 18ba9f65-3768-4d36-9a51-1665a7c053ca
+
+	column _Inferred
+		isHidden
+		displayFolder: 99. Tech
+		lineageTag: 2526dc78-e339-40fe-807a-04f25589d8b3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [_Inferred]
+
+	column '_BK - Customers'
+		isHidden
+		isKey
+		displayFolder: 99. Tech
+		lineageTag: 530758e5-60e4-45b8-9ff5-0e3087cc9b27
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [_BK - Customers]
+
+	column CustomerID
+		displayFolder: 03. Attributes
+		lineageTag: 0e900486-2547-4d74-bfa1-e3c2364c16b8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [CustomerID]
+
+	column CompanyName
+		displayFolder: 03. Attributes
+		lineageTag: 9d215b7d-0d10-4e9f-9780-201d8544c5de
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [CompanyName]
+
+	column ContactName
+		displayFolder: 03. Attributes
+		lineageTag: b1119046-1993-4736-870c-18699e6049ee
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ContactName]
+
+	column ContactTitle
+		displayFolder: 03. Attributes
+		lineageTag: 1a2f9d9c-3da2-4f39-813c-2e440f58a6ec
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ContactTitle]
+
+	column Address
+		displayFolder: 03. Attributes
+		lineageTag: 16d4d481-42b7-46cf-92da-611d68481042
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Address]
+
+	column City
+		displayFolder: 03. Attributes
+		lineageTag: 820d466a-08ac-4e59-a3fd-86dd4b4573f8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [City]
+
+	column Region
+		displayFolder: 03. Attributes
+		lineageTag: c8bac040-9be8-4909-adf4-7ed9ba470a2a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Region]
+
+	column PostalCode
+		displayFolder: 03. Attributes
+		lineageTag: 4621d9a6-b1de-47ab-948b-4d359d9195e9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [PostalCode]
+
+	column Phone
+		displayFolder: 03. Attributes
+		lineageTag: 6e27862e-5cb1-4782-b547-5b73a76dab66
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Phone]
+
+	column Fax
+		displayFolder: 03. Attributes
+		lineageTag: b1109d98-febc-440b-8526-1957b31f1240
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Fax]
+
+	column Country
+		displayFolder: 03. Attributes
+		lineageTag: 871343fe-4011-463b-bdf9-c82f68949f56
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Country]
+
+	column last_updated
+		displayFolder: 03. Attributes
+		lineageTag: 880a149d-f770-43f7-a3bd-e946e406baee
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [last_updated]
+
+	partition Customers = calculated
+		mode: import
+		source = ```
+				var _dimension_table = CALCULATETABLE('~ DIM - Customers')
+				
+				var _dimension = 
+				    SELECTCOLUMNS(
+				        _dimension_table,
+				        "_Inferred", FALSE(),
+				        "_BK - Customers", '~ DIM - Customers'[_BK - Customers],
+						"CustomerID", '~ DIM - Customers'[CustomerID],
+						"CompanyName", '~ DIM - Customers'[CompanyName],
+						"ContactName", '~ DIM - Customers'[ContactName],
+						"ContactTitle", '~ DIM - Customers'[ContactTitle],
+						"Address", '~ DIM - Customers'[Address],
+						"City", '~ DIM - Customers'[City],
+						"Region", '~ DIM - Customers'[Region],
+						"PostalCode", '~ DIM - Customers'[PostalCode],
+						"Phone", '~ DIM - Customers'[Phone],
+						"Fax", '~ DIM - Customers'[Fax],
+						"Country", '~ DIM - Customers'[Country],
+						"last_updated", '~ DIM - Customers'[last_updated]
+				
+				    )
+				
+				var _inferred_bks =
+				    UNION(
+						SELECTCOLUMNS(EXCEPT(VALUES('$ Order Entries Many BKs Example'[_BK - Customers]), VALUES('~ DIM - Customers'[_BK - Customers])), "_BK - Customers", '$ Order Entries Many BKs Example'[_BK - Customers]),
+						SELECTCOLUMNS(EXCEPT(VALUES('$ Order Entries'[_BK - Customers]), VALUES('~ DIM - Customers'[_BK - Customers])), "_BK - Customers", '$ Order Entries'[_BK - Customers]),
+						SELECTCOLUMNS(EXCEPT(VALUES('~ BRI - Shippers Bridge Example to Customers'[_BK - Customers]), VALUES('~ DIM - Customers'[_BK - Customers])), "_BK - Customers", '~ BRI - Shippers Bridge Example to Customers'[_BK - Customers]),
+						SELECTCOLUMNS(EXCEPT(VALUES('$ Order Entries Many to Many Example'[_BK - Customers]), VALUES('~ DIM - Customers'[_BK - Customers])), "_BK - Customers", '$ Order Entries Many to Many Example'[_BK - Customers])
+					)
+				    
+				
+				var _inferred_rows =
+				    SELECTCOLUMNS(
+				        DISTINCT(_inferred_bks),
+				        "_Inferred", TRUE(),
+				        "_BK - Customers", [_BK - Customers],
+						"CustomerID", "-",
+						"CompanyName", "-",
+						"ContactName", "-",
+						"ContactTitle", "-",
+						"Address", "-",
+						"City", "-",
+						"Region", "-",
+						"PostalCode", "-",
+						"Phone", "-",
+						"Fax", "-",
+						"Country", "-",
+						"last_updated", DATE(9999, 1, 1)
+				
+				    )
+				
+				var _combined =
+				    UNION(
+				        _inferred_rows,
+				        _dimension           
+				    )
+				
+				return
+				    _combined
+				```
+
+	annotation TabularEditor_TableGroup = 🗃 Dimension Tables
+

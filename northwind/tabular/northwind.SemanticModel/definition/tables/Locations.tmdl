@@ -1,0 +1,116 @@
+table Locations
+	lineageTag: 0422ffb6-649a-4451-8406-6ae47d2b5671
+
+	column _Inferred
+		isHidden
+		displayFolder: 99. Tech
+		lineageTag: 0dd2c835-ba18-4045-bd97-77dd7adc874b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [_Inferred]
+
+	column '_BK - Locations'
+		isHidden
+		isKey
+		displayFolder: 99. Tech
+		lineageTag: 26bbf7a7-cf9e-4026-8c20-0f53671d9f03
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [_BK - Locations]
+
+	column 'Ship Address'
+		displayFolder: 03. Attributes
+		lineageTag: 87a07bf8-1053-425f-ba71-ec46a8c6ffe1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Ship Address]
+
+	column 'Ship City'
+		displayFolder: 03. Attributes
+		lineageTag: 565d8f88-7d05-4e10-81c6-02f98f2645d2
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Ship City]
+
+	column 'Ship Region'
+		displayFolder: 03. Attributes
+		lineageTag: 73a85a9f-e500-47f5-b55d-84f06d707809
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Ship Region]
+
+	column 'Ship Postal Code'
+		displayFolder: 03. Attributes
+		lineageTag: f97e7b0e-6e98-4a22-903a-9501c775bbe9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Ship Postal Code]
+
+	column 'Ship Country'
+		displayFolder: 03. Attributes
+		lineageTag: e4be7d33-aed9-40fa-88cd-76e75d715e1b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Ship Country]
+
+	column last_updated
+		displayFolder: 03. Attributes
+		lineageTag: 88285d16-6a20-45b4-8296-35db1d92e602
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [last_updated]
+
+	partition Locations = calculated
+		mode: import
+		source = ```
+				var _dimension_table = CALCULATETABLE('~ DIM - Locations')
+				
+				var _dimension = 
+				    SELECTCOLUMNS(
+				        _dimension_table,
+				        "_Inferred", FALSE(),
+				        "_BK - Locations", '~ DIM - Locations'[_BK - Locations],
+						"Ship Address", '~ DIM - Locations'[Ship Address],
+						"Ship City", '~ DIM - Locations'[Ship City],
+						"Ship Region", '~ DIM - Locations'[Ship Region],
+						"Ship Postal Code", '~ DIM - Locations'[Ship Postal Code],
+						"Ship Country", '~ DIM - Locations'[Ship Country],
+						"last_updated", '~ DIM - Locations'[last_updated]
+				
+				    )
+				
+				var _inferred_bks =
+				    UNION(
+						SELECTCOLUMNS(EXCEPT(VALUES('$ Order Entries Many BKs Example'[_BK - Locations | Ship To *]), VALUES('~ DIM - Locations'[_BK - Locations])), "_BK - Locations", '$ Order Entries Many BKs Example'[_BK - Locations | Ship To *]),
+						SELECTCOLUMNS(EXCEPT(VALUES('$ Order Entries Many BKs Example'[_BK - Locations | Bill To]), VALUES('~ DIM - Locations'[_BK - Locations])), "_BK - Locations", '$ Order Entries Many BKs Example'[_BK - Locations | Bill To]),
+						SELECTCOLUMNS(EXCEPT(VALUES('$ Order Entries'[_BK - Locations]), VALUES('~ DIM - Locations'[_BK - Locations])), "_BK - Locations", '$ Order Entries'[_BK - Locations]),
+						SELECTCOLUMNS(EXCEPT(VALUES('$ Order Entries Many to Many Example'[_BK - Locations]), VALUES('~ DIM - Locations'[_BK - Locations])), "_BK - Locations", '$ Order Entries Many to Many Example'[_BK - Locations])
+					)
+				    
+				
+				var _inferred_rows =
+				    SELECTCOLUMNS(
+				        DISTINCT(_inferred_bks),
+				        "_Inferred", TRUE(),
+				        "_BK - Locations", [_BK - Locations],
+						"Ship Address", "-",
+						"Ship City", "-",
+						"Ship Region", "-",
+						"Ship Postal Code", "-",
+						"Ship Country", "-",
+						"last_updated", DATE(9999, 1, 1)
+				
+				    )
+				
+				var _combined =
+				    UNION(
+				        _inferred_rows,
+				        _dimension           
+				    )
+				
+				return
+				    _combined
+				```
+
+	annotation TabularEditor_TableGroup = 🗃 Dimension Tables
+

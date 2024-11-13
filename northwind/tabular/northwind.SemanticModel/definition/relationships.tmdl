@@ -8,15 +8,15 @@ relationship AutoDetected_840b5e71-8072-4683-bdc1-813e89b55e87
 
 relationship AutoDetected_1fab9f81-b612-407f-8cc6-6c90f399aca7
 	fromColumn: '$ Order Entries Many BKs Example'.'_BK - Shippers'
-	toColumn: '~ DIM Shippers'.'_BK - Shippers'
+	toColumn: '~ DIM - Shippers'.'_BK - Shippers'
 
 relationship AutoDetected_d08d0766-6f1e-4e93-abed-951db118eef7
 	fromColumn: '$ Order Entries'.'_BK - Shippers'
-	toColumn: '~ DIM Shippers'.'_BK - Shippers'
+	toColumn: '~ DIM - Shippers'.'_BK - Shippers'
 
 relationship AutoDetected_e2937573-afd1-407f-a1c1-0075bd33f0da
 	fromColumn: '$ Order Entries Many to Many Example'.'_BK - Shippers'
-	toColumn: '~ DIM Shippers'.'_BK - Shippers'
+	toColumn: '~ DIM - Shippers'.'_BK - Shippers'
 
 relationship AutoDetected_efe91c96-f4e5-451b-b998-7f78743804e5
 	fromColumn: '$ Order Entries'.'_BK - Locations'
@@ -29,6 +29,97 @@ relationship AutoDetected_49de244a-5de6-4e57-a079-452da53f7a63
 relationship AutoDetected_6e0ee4d0-23fc-4bc7-a72f-a319c4283db0
 	crossFilteringBehavior: bothDirections
 	fromCardinality: one
-	fromColumn: '~ DIM Shippers'.Phone
+	fromColumn: '~ DIM - Shippers'.Phone
 	toColumn: '~ DIM - Shippers Bridge Example'.Phone
+
+relationship afb65012-d227-40c9-98ba-9ffe7c5c687d
+	fromColumn: '$ Order Entries Many BKs Example'.'_BK - Customers'
+	toColumn: Customers.'_BK - Customers'
+
+relationship 498ab53f-b53c-4e3d-816c-3e64add9f85b
+	fromColumn: '$ Order Entries Many BKs Example'.'_BK - Employees'
+	toColumn: Employees.'_BK - Employees'
+
+relationship ae896f36-a3da-4ea4-9b64-af7f9468ec57
+	fromColumn: '$ Order Entries Many BKs Example'.'_BK - Locations | Ship To *'
+	toColumn: Locations.'_BK - Locations'
+
+relationship 21c22bd3-c67d-48fe-96b2-5318114d5845
+	isActive: false
+	fromColumn: '$ Order Entries Many BKs Example'.'_BK - Locations | Bill To'
+	toColumn: Locations.'_BK - Locations'
+
+relationship 472cc7b9-3ff3-4695-b623-a74eade0b9ef
+	fromColumn: '$ Order Entries Many BKs Example'.'_DK - Calendar | Order Date *'
+	toColumn: Calendar.Date
+
+relationship c608cf0c-8544-48fc-b0f3-2ce82854aa3a
+	isActive: false
+	fromColumn: '$ Order Entries Many BKs Example'.'_DK - Calendar | Required Date'
+	toColumn: Calendar.Date
+
+relationship 38e57998-fedd-450f-bacd-22bb2e0352e4
+	isActive: false
+	fromColumn: '$ Order Entries Many BKs Example'.'_DK - Calendar | Shipped Date'
+	toColumn: Calendar.Date
+
+relationship 62e6588a-80f5-4660-ad98-41bd2f32eeec
+	fromColumn: '$ Order Entries'.'_BK - Customers'
+	toColumn: Customers.'_BK - Customers'
+
+relationship a6148e1e-7338-4fc3-93b3-489e83611853
+	fromColumn: '$ Order Entries'.'_BK - Employees'
+	toColumn: Employees.'_BK - Employees'
+
+relationship 05d38c1e-4881-4d65-8e50-7c2d625782be
+	fromColumn: '$ Order Entries'.'_DK - Calendar / Order Date *'
+	toColumn: Calendar.Date
+
+relationship ca05a2d4-8d0e-44ef-9484-7486872ad103
+	isActive: false
+	fromColumn: '$ Order Entries'.'_DK - Calendar / Required Date'
+	toColumn: Calendar.Date
+
+relationship 4effce49-b618-482f-8423-3eed3ba98579
+	isActive: false
+	fromColumn: '$ Order Entries'.'_DK - Calendar / Shipped Date'
+	toColumn: Calendar.Date
+
+relationship 27059938-ca39-4fee-be84-b985ff277006
+	fromColumn: '$ Order Entries Many to Many Example'.'_BK - Customers'
+	toColumn: Customers.'_BK - Customers'
+
+relationship 76b96ac5-35e4-4f5c-b45a-86eb05ce12b0
+	fromColumn: '$ Order Entries Many to Many Example'.'_BK - Employees'
+	toColumn: Employees.'_BK - Employees'
+
+relationship b3d4a6ff-6b2d-45b5-9bed-d2dfab3c2408
+	fromColumn: '$ Order Entries Many to Many Example'.'_DK - Calendar | Order Date *'
+	toColumn: Calendar.Date
+
+relationship 3401e21c-c19a-4bac-966d-b7e222292dbd
+	isActive: false
+	fromColumn: '$ Order Entries Many to Many Example'.'_DK - Calendar | Required Date'
+	toColumn: Calendar.Date
+
+relationship 468ba6c4-6582-4e75-8eb5-b6854c7045b8
+	isActive: false
+	fromColumn: '$ Order Entries Many to Many Example'.'_DK - Calendar | Shipped Date'
+	toColumn: Calendar.Date
+
+relationship 1e117c62-1600-44e3-b554-50f75d6c79de
+	crossFilteringBehavior: bothDirections
+	securityFilteringBehavior: bothDirections
+	fromColumn: '~ BRI - Shippers Bridge Example to Customers'.'_BK - Customers'
+	toColumn: Customers.'_BK - Customers'
+
+relationship 5ba61d20-4c2f-4fb1-a295-d0842e630d3f
+	fromColumn: '~ BRI - Shippers Bridge Example to Customers'.'_BK - Shippers Bridge Example'
+	toColumn: 'Shippers Bridge Example'.'_BK - Shippers Bridge Example'
+
+relationship 632d36c7-0c39-4a4a-9879-0ee818a0c4dc
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: '$ Order Entries Many to Many Example'.'_MM - Products / CategoryID <>'
+	toColumn: Products.CategoryID
 

@@ -1,0 +1,97 @@
+table Shippers
+	lineageTag: 2252bfe7-9068-4fae-aa37-f6d6252f3ab0
+
+	column _Inferred
+		isHidden
+		displayFolder: 99. Tech
+		lineageTag: c61fd6e9-87e0-4d74-90da-16e210da15c0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [_Inferred]
+
+	column '_BK - Shippers'
+		isHidden
+		isKey
+		displayFolder: 99. Tech
+		lineageTag: 16f0d8d5-8def-4eef-9bec-36ebc1ffd15c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [_BK - Shippers]
+
+	column ShipperID
+		displayFolder: 03. Attributes
+		lineageTag: 8aee4039-e121-468d-bae9-5f31898e8146
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ShipperID]
+
+	column CompanyName
+		displayFolder: 03. Attributes
+		lineageTag: 01dc8367-2641-4ac9-b8e7-03e2e0b7c9f1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [CompanyName]
+
+	column Phone
+		displayFolder: 03. Attributes
+		lineageTag: 14f5c391-3fbd-492b-8823-4d8c9d973bb0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Phone]
+
+	column last_updated
+		displayFolder: 03. Attributes
+		lineageTag: fc3dd347-7b7c-4e61-a712-11f5f6f17d7b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [last_updated]
+
+	partition Shippers = calculated
+		mode: import
+		source = ```
+				var _dimension_table = CALCULATETABLE('~ DIM - Shippers')
+				
+				var _dimension = 
+				    SELECTCOLUMNS(
+				        _dimension_table,
+				        "_Inferred", FALSE(),
+				        "_BK - Shippers", '~ DIM - Shippers'[_BK - Shippers],
+						"ShipperID", '~ DIM - Shippers'[ShipperID],
+						"CompanyName", '~ DIM - Shippers'[CompanyName],
+						"Phone", '~ DIM - Shippers'[Phone],
+						"last_updated", '~ DIM - Shippers'[last_updated]
+				
+				    )
+				
+				var _inferred_bks =
+				    UNION(
+						SELECTCOLUMNS(EXCEPT(VALUES('$ Order Entries Many BKs Example'[_BK - Shippers]), VALUES('~ DIM - Shippers'[_BK - Shippers])), "_BK - Shippers", '$ Order Entries Many BKs Example'[_BK - Shippers]),
+						SELECTCOLUMNS(EXCEPT(VALUES('$ Order Entries'[_BK - Shippers]), VALUES('~ DIM - Shippers'[_BK - Shippers])), "_BK - Shippers", '$ Order Entries'[_BK - Shippers]),
+						SELECTCOLUMNS(EXCEPT(VALUES('$ Order Entries Many to Many Example'[_BK - Shippers]), VALUES('~ DIM - Shippers'[_BK - Shippers])), "_BK - Shippers", '$ Order Entries Many to Many Example'[_BK - Shippers])
+					)
+				    
+				
+				var _inferred_rows =
+				    SELECTCOLUMNS(
+				        DISTINCT(_inferred_bks),
+				        "_Inferred", TRUE(),
+				        "_BK - Shippers", [_BK - Shippers],
+						"ShipperID", 0,
+						"CompanyName", "-",
+						"Phone", "-",
+						"last_updated", DATE(9999, 1, 1)
+				
+				    )
+				
+				var _combined =
+				    UNION(
+				        _inferred_rows,
+				        _dimension           
+				    )
+				
+				return
+				    _combined
+				```
+
+	annotation TabularEditor_TableGroup = 🗃 Dimension Tables
+

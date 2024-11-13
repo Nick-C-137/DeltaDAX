@@ -1,0 +1,50 @@
+table '$ Last Updated'
+	isHidden
+	lineageTag: 8abab1be-4d52-4c96-967a-a60eb7668255
+
+	column Table
+		displayFolder: 01. Line Items
+		lineageTag: 25e3b1ce-7821-46ce-b1a5-791986da9a1d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Table]
+
+	column last_updated
+		displayFolder: 01. Line Items
+		lineageTag: 6566fe5a-3f76-4283-8d77-1f5b73753ed6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [last_updated]
+
+	partition '$ Last Updated' = calculated
+		mode: import
+		source = ```
+				SELECTCOLUMNS (
+					{
+						 ( "$ Order Entries Many BKs Example" , MAX( '$ Order Entries Many BKs Example'[last_updated] ))
+						,( "$ Order Entries" , MAX( '$ Order Entries'[last_updated] ))
+						,( "~ DIM - Customers" , MAX( '~ DIM - Customers'[last_updated] ))
+						,( "~ BRI - Shippers Bridge Example to Customers" , MAX( '~ BRI - Shippers Bridge Example to Customers'[last_updated] ))
+						,( "$ Order Entries Many to Many Example" , MAX( '$ Order Entries Many to Many Example'[last_updated] ))
+						,( "~ DIM - Locations" , MAX( '~ DIM - Locations'[last_updated] ))
+						,( "~ DIM - Products" , MAX( '~ DIM - Products'[last_updated] ))
+						,( "~ DIM - Shippers Bridge Example" , MAX( '~ DIM - Shippers Bridge Example'[last_updated] ))
+						,( "~ DIM - Shippers" , MAX( '~ DIM - Shippers'[last_updated] ))
+						,( "Calendar" , MAX( 'Calendar'[last_updated] ))
+						,( "~ DIM - Employees" , MAX( '~ DIM - Employees'[last_updated] ))
+						,( "Customers" , MAX( 'Customers'[last_updated] ))
+						,( "Locations" , MAX( 'Locations'[last_updated] ))
+						,( "Products" , MAX( 'Products'[last_updated] ))
+						,( "Shippers Bridge Example" , MAX( 'Shippers Bridge Example'[last_updated] ))
+						,( "Shippers" , MAX( 'Shippers'[last_updated] ))
+						,( "Employees" , MAX( 'Employees'[last_updated] ))
+						
+					},
+					"Table", [Value1],
+					"last_updated", [Value2]
+				)
+				
+				```
+
+	annotation TabularEditor_TableGroup = 🔢 Fact Tables
+

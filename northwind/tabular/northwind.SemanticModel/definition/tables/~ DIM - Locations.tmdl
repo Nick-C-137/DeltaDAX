@@ -49,6 +49,15 @@ table '~ DIM - Locations'
 
 		annotation SummarizationSetBy = Automatic
 
+	column last_updated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d12ec798-8439-4ede-9dc6-b23f0de4cc3f
+		summarizeBy: none
+		sourceColumn: last_updated
+
+		annotation SummarizationSetBy = Automatic
+
 	partition '~ DIM - Locations' = m
 		mode: import
 		source =
@@ -59,4 +68,6 @@ table '~ DIM - Locations'
 				    #"dwh_~ DIM - Locations"
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

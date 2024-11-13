@@ -319,6 +319,15 @@ table Calendar
 
 		annotation SummarizationSetBy = Automatic
 
+	column last_updated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0b22fb38-541c-4bcb-aad6-28f94708829d
+		summarizeBy: none
+		sourceColumn: last_updated
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Calendar = m
 		mode: import
 		source =
@@ -329,4 +338,6 @@ table Calendar
 				    dwh_Calendar
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

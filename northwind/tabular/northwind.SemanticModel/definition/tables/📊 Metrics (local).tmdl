@@ -1,0 +1,19 @@
+table '📊 Metrics (local)'
+	lineageTag: 992ffbaa-f3d3-45f1-a5a3-ec1028bd8004
+
+	column z_dummy
+		isHidden
+		lineageTag: 72391fb5-5014-437d-832a-e78bf19fd6ad
+		isNameInferred
+		sourceColumn: [z_dummy]
+
+	partition '📊 Metrics (local)' = calculated
+		mode: import
+		source = ```
+				DATATABLE(
+				    "z_dummy", STRING,
+				    {{}}
+				)
+				
+				```
+

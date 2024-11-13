@@ -1,0 +1,21 @@
+table '# Use Relationships'
+	lineageTag: 3a8939bf-303d-4edb-a1c4-eee616f5cc4a
+
+	calculationGroup
+
+	column Perspectives
+		dataType: string
+		lineageTag: ba845211-ab9c-43ed-ad7c-7334b97d5ba9
+		sourceColumn: Name
+		sortByColumn: Ordinal
+
+	column Ordinal
+		dataType: int64
+		isHidden
+		lineageTag: 897885cf-3119-4892-8135-9e5d71c889a0
+		sourceColumn: Ordinal
+
+	annotation TabularEditor_TableGroup = 🧮 Calculation Groups
+
+	annotation DeltaSQL_60_TableType = CalculationGroup_DAX
+

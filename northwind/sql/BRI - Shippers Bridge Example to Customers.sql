@@ -6,7 +6,7 @@ WITH
 
 customer_table as (
     SELECT
-        [_BK - Customers] = CustomerID
+        [_BK - Customers] = CAST(CustomerID AS NVARCHAR(100))
     FROM
         dbo.Customers
 ),
@@ -50,6 +50,7 @@ unioned as (
 SELECT
      [_BK - Customers] = [_BK - Customers]
     ,[_BK - Shippers Bridge Example] = [_BK - Shippers]
+    ,last_updated = GETDATE()
 FROM
     unioned
 

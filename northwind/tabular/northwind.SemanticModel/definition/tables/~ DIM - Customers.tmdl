@@ -73,14 +73,6 @@ table '~ DIM - Customers'
 
 		annotation SummarizationSetBy = Automatic
 
-	column u
-		dataType: string
-		lineageTag: 8966d3b8-52fa-463c-9683-06a82f350e23
-		summarizeBy: none
-		sourceColumn: u
-
-		annotation SummarizationSetBy = Automatic
-
 	column Phone
 		dataType: string
 		lineageTag: f34a0135-fed1-4c94-a50a-2d2e48a17d73
@@ -97,6 +89,23 @@ table '~ DIM - Customers'
 
 		annotation SummarizationSetBy = Automatic
 
+	column Country
+		dataType: string
+		lineageTag: b69460dd-64f7-4bbd-a51f-38a8fabb700c
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_updated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 09a1cfd6-94e2-4f96-894c-5f8ef431cec5
+		summarizeBy: none
+		sourceColumn: last_updated
+
+		annotation SummarizationSetBy = Automatic
+
 	partition '~ DIM - Customers' = m
 		mode: import
 		source =
@@ -107,4 +116,6 @@ table '~ DIM - Customers'
 				    #"dwh_~ DIM - Customers"
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

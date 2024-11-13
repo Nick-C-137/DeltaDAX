@@ -1,6 +1,7 @@
 model Model
 	culture: en-US
 	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
 	sourceQueryCulture: en-US
 	dataAccessOptions
 		legacyRedirects
@@ -12,7 +13,9 @@ annotation PBIDesktopVersion = 2.138.782.0 (24.11)
 
 annotation PBI_ProTooling = ["DevMode"]
 
-annotation PBI_QueryOrder = ["$ Order Entries Many BKs Example","$ Order Entries","$ Order Entries Many to Many Example","~ DIM - Customers","~ BRI - Shippers Bridge Example to Customers","~ DIM - Locations","~ DIM - Products","~ DIM - Shippers Bridge Example","~ DIM Shippers","Calendar"]
+annotation PBI_QueryOrder = ["$ Order Entries Many BKs Example","$ Order Entries","$ Order Entries Many to Many Example","~ DIM - Customers","~ BRI - Shippers Bridge Example to Customers","~ DIM - Locations","~ DIM - Products","~ DIM - Shippers Bridge Example","~ DIM - Shippers","~ DIM - Employees","Calendar"]
+
+annotation __TEdtr = 1
 
 ref table '$ Order Entries Many BKs Example'
 ref table '$ Order Entries'
@@ -22,8 +25,19 @@ ref table '$ Order Entries Many to Many Example'
 ref table '~ DIM - Locations'
 ref table '~ DIM - Products'
 ref table '~ DIM - Shippers Bridge Example'
-ref table '~ DIM Shippers'
+ref table '~ DIM - Shippers'
 ref table Calendar
+ref table '~ DIM - Employees'
+ref table Customers
+ref table Locations
+ref table Products
+ref table 'Shippers Bridge Example'
+ref table Shippers
+ref table Employees
+ref table '$ Last Updated'
+ref table '# Use Relationships'
+ref table '📊 Metrics'
+ref table '📊 Metrics (local)'
 
 ref cultureInfo en-US
 
