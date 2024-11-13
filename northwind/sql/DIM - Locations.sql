@@ -1,3 +1,4 @@
+CREATE VIEW dwh.[~ DIM - Locations] AS
 WITH
 
 base as (

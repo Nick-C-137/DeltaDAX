@@ -1,3 +1,4 @@
+CREATE VIEW dwh.[$ Order Entries] AS
 WITH 
 
 base as (

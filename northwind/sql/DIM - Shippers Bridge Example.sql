@@ -1,3 +1,4 @@
+CREATE VIEW dwh.[~ DIM - Shippers Bridge Example] AS
 WITH
 
 base as (

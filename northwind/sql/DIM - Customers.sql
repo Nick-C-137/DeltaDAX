@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS #northwind_temp_customers;
+CREATE VIEW dwh.[~ DIM - Customers] AS
 
 WITH
 base as (

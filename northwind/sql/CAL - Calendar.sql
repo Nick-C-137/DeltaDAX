@@ -1,3 +1,4 @@
+CREATE VIEW dwh.[Calendar] AS
 /*This section is intended for the scripting layer*/
 SELECT
     *

@@ -1,3 +1,4 @@
+CREATE VIEW dwh.[~ DIM - Products] AS
 WITH
 
 base as (

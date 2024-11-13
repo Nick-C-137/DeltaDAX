@@ -1,3 +1,4 @@
+CREATE VIEW dwh.[~ DIM Shippers] AS
 WITH
 
 base as (

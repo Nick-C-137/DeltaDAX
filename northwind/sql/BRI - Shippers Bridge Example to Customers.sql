@@ -1,3 +1,4 @@
+CREATE VIEW [~ BRI - Shippers Bridge Example to Customers] AS
 WITH
 
 customer_table as (

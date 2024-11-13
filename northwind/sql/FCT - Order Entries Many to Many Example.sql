@@ -1,3 +1,4 @@
+CREATE VIEW dwh.[$ Order Entries Many to Many Example] AS
 WITH 
 
 base as (

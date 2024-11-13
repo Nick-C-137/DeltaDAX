@@ -1,3 +1,4 @@
+CREATE VIEW dwh.[~ DIM - Employees] AS
 SELECT
      [_BK - Employees] = EmployeeID
     ,[EmployeeID]
