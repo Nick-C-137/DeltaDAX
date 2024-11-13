@@ -1,10 +1,10 @@
 table Shippers
-	lineageTag: 2252bfe7-9068-4fae-aa37-f6d6252f3ab0
+	lineageTag: 0678a6fd-eb35-4ca2-987a-7f7cf3824455
 
 	column _Inferred
 		isHidden
 		displayFolder: 99. Tech
-		lineageTag: c61fd6e9-87e0-4d74-90da-16e210da15c0
+		lineageTag: dbe10b3a-78a0-49e7-84a2-a7f9fbbccd5b
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [_Inferred]
@@ -13,35 +13,35 @@ table Shippers
 		isHidden
 		isKey
 		displayFolder: 99. Tech
-		lineageTag: 16f0d8d5-8def-4eef-9bec-36ebc1ffd15c
+		lineageTag: 3d538975-c208-4740-9f80-04a964cd0145
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [_BK - Shippers]
 
 	column ShipperID
 		displayFolder: 03. Attributes
-		lineageTag: 8aee4039-e121-468d-bae9-5f31898e8146
+		lineageTag: e48c9300-0427-4535-a899-f323d2e71051
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [ShipperID]
 
 	column CompanyName
 		displayFolder: 03. Attributes
-		lineageTag: 01dc8367-2641-4ac9-b8e7-03e2e0b7c9f1
+		lineageTag: 8ca46229-0dd6-4491-bcce-507a0b8b60e3
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [CompanyName]
 
 	column Phone
 		displayFolder: 03. Attributes
-		lineageTag: 14f5c391-3fbd-492b-8823-4d8c9d973bb0
+		lineageTag: 5f55cf95-d4ce-4be1-8cc2-cf39279a46fe
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Phone]
 
 	column last_updated
 		displayFolder: 03. Attributes
-		lineageTag: fc3dd347-7b7c-4e61-a712-11f5f6f17d7b
+		lineageTag: a7a70db2-8d71-4ce2-a7d3-6468abbb7db0
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [last_updated]

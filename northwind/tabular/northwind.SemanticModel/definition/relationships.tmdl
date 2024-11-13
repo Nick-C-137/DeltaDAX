@@ -1,123 +1,117 @@
-relationship AutoDetected_1da6094a-ee99-436b-b7d2-8574eec84116
-	fromColumn: '$ Order Entries Many BKs Example'.'_BK - Products'
-	toColumn: '~ DIM - Products'.'_BK - Products'
-
-relationship AutoDetected_840b5e71-8072-4683-bdc1-813e89b55e87
-	fromColumn: '$ Order Entries'.'_BK - Products'
-	toColumn: '~ DIM - Products'.'_BK - Products'
-
-relationship AutoDetected_1fab9f81-b612-407f-8cc6-6c90f399aca7
-	fromColumn: '$ Order Entries Many BKs Example'.'_BK - Shippers'
-	toColumn: '~ DIM - Shippers'.'_BK - Shippers'
-
-relationship AutoDetected_d08d0766-6f1e-4e93-abed-951db118eef7
-	fromColumn: '$ Order Entries'.'_BK - Shippers'
-	toColumn: '~ DIM - Shippers'.'_BK - Shippers'
-
-relationship AutoDetected_e2937573-afd1-407f-a1c1-0075bd33f0da
-	fromColumn: '$ Order Entries Many to Many Example'.'_BK - Shippers'
-	toColumn: '~ DIM - Shippers'.'_BK - Shippers'
-
-relationship AutoDetected_efe91c96-f4e5-451b-b998-7f78743804e5
-	fromColumn: '$ Order Entries'.'_BK - Locations'
-	toColumn: '~ DIM - Locations'.'_BK - Locations'
-
-relationship AutoDetected_49de244a-5de6-4e57-a079-452da53f7a63
-	fromColumn: '$ Order Entries Many to Many Example'.'_BK - Locations'
-	toColumn: '~ DIM - Locations'.'_BK - Locations'
-
-relationship AutoDetected_6e0ee4d0-23fc-4bc7-a72f-a319c4283db0
-	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: '~ DIM - Shippers'.Phone
-	toColumn: '~ DIM - Shippers Bridge Example'.Phone
-
-relationship afb65012-d227-40c9-98ba-9ffe7c5c687d
+relationship 4bca5a8e-f03e-4600-bd52-0e83272ca655
 	fromColumn: '$ Order Entries Many BKs Example'.'_BK - Customers'
 	toColumn: Customers.'_BK - Customers'
 
-relationship 498ab53f-b53c-4e3d-816c-3e64add9f85b
+relationship 75d25c8e-5dea-4b7e-ab42-174c66166678
 	fromColumn: '$ Order Entries Many BKs Example'.'_BK - Employees'
 	toColumn: Employees.'_BK - Employees'
 
-relationship ae896f36-a3da-4ea4-9b64-af7f9468ec57
+relationship 26f8a709-bf98-4e65-8fed-89b140125450
+	fromColumn: '$ Order Entries Many BKs Example'.'_BK - Products'
+	toColumn: Products.'_BK - Products'
+
+relationship ed2dd17f-bc06-4b9b-aa62-d12e78a80263
+	fromColumn: '$ Order Entries Many BKs Example'.'_BK - Shippers'
+	toColumn: Shippers.'_BK - Shippers'
+
+relationship 6fbc55fa-8a46-4d1d-a5d6-1dff78b4b860
 	fromColumn: '$ Order Entries Many BKs Example'.'_BK - Locations | Ship To *'
 	toColumn: Locations.'_BK - Locations'
 
-relationship 21c22bd3-c67d-48fe-96b2-5318114d5845
+relationship 6163c077-edbe-4a9c-acb7-a2dcd7d5a81a
 	isActive: false
 	fromColumn: '$ Order Entries Many BKs Example'.'_BK - Locations | Bill To'
 	toColumn: Locations.'_BK - Locations'
 
-relationship 472cc7b9-3ff3-4695-b623-a74eade0b9ef
+relationship 348bd953-1528-4569-a50b-8e2124bc68f0
 	fromColumn: '$ Order Entries Many BKs Example'.'_DK - Calendar | Order Date *'
 	toColumn: Calendar.Date
 
-relationship c608cf0c-8544-48fc-b0f3-2ce82854aa3a
+relationship 53a5d7b7-dc04-4d52-9353-c91b23dde7df
 	isActive: false
 	fromColumn: '$ Order Entries Many BKs Example'.'_DK - Calendar | Required Date'
 	toColumn: Calendar.Date
 
-relationship 38e57998-fedd-450f-bacd-22bb2e0352e4
+relationship 01e56147-1800-4047-b580-2840dae4f059
 	isActive: false
 	fromColumn: '$ Order Entries Many BKs Example'.'_DK - Calendar | Shipped Date'
 	toColumn: Calendar.Date
 
-relationship 62e6588a-80f5-4660-ad98-41bd2f32eeec
+relationship 86a6b9a4-1988-4668-94ff-c47e46dd0165
 	fromColumn: '$ Order Entries'.'_BK - Customers'
 	toColumn: Customers.'_BK - Customers'
 
-relationship a6148e1e-7338-4fc3-93b3-489e83611853
+relationship 981ed680-a415-4eeb-b229-cc8c17ff007e
 	fromColumn: '$ Order Entries'.'_BK - Employees'
 	toColumn: Employees.'_BK - Employees'
 
-relationship 05d38c1e-4881-4d65-8e50-7c2d625782be
+relationship b5d7b39c-732c-4e78-91ac-c7e85d66d37d
+	fromColumn: '$ Order Entries'.'_BK - Products'
+	toColumn: Products.'_BK - Products'
+
+relationship 95fef504-c017-43bd-a544-6bfbe985dcda
+	fromColumn: '$ Order Entries'.'_BK - Shippers'
+	toColumn: Shippers.'_BK - Shippers'
+
+relationship aa0b70e7-b080-4be2-ad77-4e01f3d176ff
+	fromColumn: '$ Order Entries'.'_BK - Locations'
+	toColumn: Locations.'_BK - Locations'
+
+relationship b27208a1-2368-401f-a130-f036e8aae4ba
 	fromColumn: '$ Order Entries'.'_DK - Calendar / Order Date *'
 	toColumn: Calendar.Date
 
-relationship ca05a2d4-8d0e-44ef-9484-7486872ad103
+relationship ef70b639-c464-48da-b26b-400790cba9ab
 	isActive: false
 	fromColumn: '$ Order Entries'.'_DK - Calendar / Required Date'
 	toColumn: Calendar.Date
 
-relationship 4effce49-b618-482f-8423-3eed3ba98579
+relationship e5ed7956-4f37-4435-83eb-ea7343cf9bd0
 	isActive: false
 	fromColumn: '$ Order Entries'.'_DK - Calendar / Shipped Date'
 	toColumn: Calendar.Date
 
-relationship 27059938-ca39-4fee-be84-b985ff277006
+relationship ac3eac0e-bd78-40e8-be71-c2a49801137a
 	fromColumn: '$ Order Entries Many to Many Example'.'_BK - Customers'
 	toColumn: Customers.'_BK - Customers'
 
-relationship 76b96ac5-35e4-4f5c-b45a-86eb05ce12b0
+relationship 1ad3689f-0db3-4c81-a948-3dbbea9561a1
 	fromColumn: '$ Order Entries Many to Many Example'.'_BK - Employees'
 	toColumn: Employees.'_BK - Employees'
 
-relationship b3d4a6ff-6b2d-45b5-9bed-d2dfab3c2408
+relationship cb2a0693-4bee-45c5-acbf-fb7846e24caa
+	fromColumn: '$ Order Entries Many to Many Example'.'_BK - Shippers'
+	toColumn: Shippers.'_BK - Shippers'
+
+relationship 612c26ca-881b-4395-99fd-d49f9ba33e4e
+	fromColumn: '$ Order Entries Many to Many Example'.'_BK - Locations'
+	toColumn: Locations.'_BK - Locations'
+
+relationship 12b26131-3ebd-43f5-a641-91b77c7363ae
 	fromColumn: '$ Order Entries Many to Many Example'.'_DK - Calendar | Order Date *'
 	toColumn: Calendar.Date
 
-relationship 3401e21c-c19a-4bac-966d-b7e222292dbd
+relationship 3e26a42e-239d-4b3f-91ac-25189a9c5465
 	isActive: false
 	fromColumn: '$ Order Entries Many to Many Example'.'_DK - Calendar | Required Date'
 	toColumn: Calendar.Date
 
-relationship 468ba6c4-6582-4e75-8eb5-b6854c7045b8
+relationship f13b998e-bee4-4833-84f5-bfe9eb9370ff
 	isActive: false
 	fromColumn: '$ Order Entries Many to Many Example'.'_DK - Calendar | Shipped Date'
 	toColumn: Calendar.Date
 
-relationship 1e117c62-1600-44e3-b554-50f75d6c79de
+relationship 30164e44-daa4-46c1-aab3-18484a689c34
 	crossFilteringBehavior: bothDirections
 	securityFilteringBehavior: bothDirections
 	fromColumn: '~ BRI - Shippers Bridge Example to Customers'.'_BK - Customers'
 	toColumn: Customers.'_BK - Customers'
 
-relationship 5ba61d20-4c2f-4fb1-a295-d0842e630d3f
+relationship f7277874-0a9f-460a-8ee7-8090f83914b0
 	fromColumn: '~ BRI - Shippers Bridge Example to Customers'.'_BK - Shippers Bridge Example'
 	toColumn: 'Shippers Bridge Example'.'_BK - Shippers Bridge Example'
 
-relationship 632d36c7-0c39-4a4a-9879-0ee818a0c4dc
+relationship 6d5e5663-a7c4-4729-bb79-356fafce4f04
 	crossFilteringBehavior: bothDirections
 	toCardinality: many
 	fromColumn: '$ Order Entries Many to Many Example'.'_MM - Products / CategoryID <>'

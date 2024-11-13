@@ -1,10 +1,10 @@
 table Products
-	lineageTag: 7c6bd2b1-538d-4798-b111-4067b7d81d16
+	lineageTag: 210ef66d-6bb6-4663-9cb9-da8cd9f9601d
 
 	column _Inferred
 		isHidden
 		displayFolder: 99. Tech
-		lineageTag: bff95263-8ca8-47c3-a47f-c05ab482a07c
+		lineageTag: 48e9b2a9-d34b-43d6-91b0-f6ff245456bc
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [_Inferred]
@@ -13,84 +13,84 @@ table Products
 		isHidden
 		isKey
 		displayFolder: 99. Tech
-		lineageTag: c2ead0ea-b441-4f27-97e2-7ad896fb1948
+		lineageTag: 40ed58c0-7196-45f6-8ca8-a39b5e48e8ff
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [_BK - Products]
 
 	column ProductID
 		displayFolder: 03. Attributes
-		lineageTag: 88c61218-4596-4c6c-acaa-b4eaecf1744c
+		lineageTag: 017f31a8-bf69-4016-b67f-401757b1588a
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [ProductID]
 
 	column ProductName
 		displayFolder: 03. Attributes
-		lineageTag: 91b6fdd1-eed3-4e6d-83ab-3d1583863601
+		lineageTag: 791d27e7-76c1-4612-ae7f-af156f55d9dc
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [ProductName]
 
 	column SupplierID
 		displayFolder: 03. Attributes
-		lineageTag: a67b714f-301d-4060-8418-339b4563e55b
+		lineageTag: 867c18bb-d9cd-4071-9d04-6481c752cb53
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [SupplierID]
 
 	column CategoryID
 		displayFolder: 03. Attributes
-		lineageTag: 65e5be46-d0b7-407f-bbc5-03b3a64df1fd
+		lineageTag: 78661bec-8746-4765-92c1-3666261c9b79
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [CategoryID]
 
 	column QuantityPerUnit
 		displayFolder: 03. Attributes
-		lineageTag: 7c7e947f-11f9-4168-8fdd-665acd3f1391
+		lineageTag: 3b6beff7-e370-4135-8b91-4c68dc0349a8
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [QuantityPerUnit]
 
 	column UnitPrice
 		displayFolder: 03. Attributes
-		lineageTag: 2f37733b-8d14-4e86-9120-fea8f038e84b
+		lineageTag: a92a3d6d-44b7-47ef-bf56-7cde29cb1963
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [UnitPrice]
 
 	column UnitsInStock
 		displayFolder: 03. Attributes
-		lineageTag: 689b828d-b40f-4042-9034-e212f52da672
+		lineageTag: fbdba93f-7723-4cbc-ab9a-848442da7ce6
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [UnitsInStock]
 
 	column UnitsOnOrder
 		displayFolder: 03. Attributes
-		lineageTag: eacea955-f1c9-4544-93a4-c2c71d37bd84
+		lineageTag: 400dcea5-cc8c-4ebd-8c60-83586f627626
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [UnitsOnOrder]
 
 	column ReorderLevel
 		displayFolder: 03. Attributes
-		lineageTag: 87152319-d5ea-4e09-9a1c-14e8470fba0e
+		lineageTag: 7d64cf54-4e75-4be0-99c2-eaae893eca91
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [ReorderLevel]
 
 	column Discontinued
 		displayFolder: 03. Attributes
-		lineageTag: 4e32921b-6726-4230-a3f9-b513ca352223
+		lineageTag: 2c7a42ec-4a46-48f4-bdab-55d4a480f0b7
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Discontinued]
 
 	column last_updated
 		displayFolder: 03. Attributes
-		lineageTag: 85b1a6fb-d111-4d94-bafb-5f316ae1441f
+		lineageTag: 0ee4c8e3-efcd-4f5a-ad8d-1cfd62ba0fa2
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [last_updated]

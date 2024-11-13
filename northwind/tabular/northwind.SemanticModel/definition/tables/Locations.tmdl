@@ -1,10 +1,10 @@
 table Locations
-	lineageTag: 0422ffb6-649a-4451-8406-6ae47d2b5671
+	lineageTag: f1bea5c4-7549-4b14-99fe-63d27017c1df
 
 	column _Inferred
 		isHidden
 		displayFolder: 99. Tech
-		lineageTag: 0dd2c835-ba18-4045-bd97-77dd7adc874b
+		lineageTag: 6691e8f2-a812-499f-ab90-5be7a7314d5e
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [_Inferred]
@@ -13,49 +13,49 @@ table Locations
 		isHidden
 		isKey
 		displayFolder: 99. Tech
-		lineageTag: 26bbf7a7-cf9e-4026-8c20-0f53671d9f03
+		lineageTag: 783aa599-664d-4e53-b568-b1ab26f8ee55
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [_BK - Locations]
 
 	column 'Ship Address'
 		displayFolder: 03. Attributes
-		lineageTag: 87a07bf8-1053-425f-ba71-ec46a8c6ffe1
+		lineageTag: 72a79b90-3a34-4d1e-a31b-1cb2add5840c
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Ship Address]
 
 	column 'Ship City'
 		displayFolder: 03. Attributes
-		lineageTag: 565d8f88-7d05-4e10-81c6-02f98f2645d2
+		lineageTag: 86657fca-1467-42af-b338-6d7f45378e4e
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Ship City]
 
 	column 'Ship Region'
 		displayFolder: 03. Attributes
-		lineageTag: 73a85a9f-e500-47f5-b55d-84f06d707809
+		lineageTag: 222928ae-fd57-4cd0-ba45-f71cfc485279
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Ship Region]
 
 	column 'Ship Postal Code'
 		displayFolder: 03. Attributes
-		lineageTag: f97e7b0e-6e98-4a22-903a-9501c775bbe9
+		lineageTag: 2a4fe077-a5ba-4e36-9736-29c7a3009cb7
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Ship Postal Code]
 
 	column 'Ship Country'
 		displayFolder: 03. Attributes
-		lineageTag: e4be7d33-aed9-40fa-88cd-76e75d715e1b
+		lineageTag: dc239a13-fa22-41bd-80a7-956bf026b366
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Ship Country]
 
 	column last_updated
 		displayFolder: 03. Attributes
-		lineageTag: 88285d16-6a20-45b4-8296-35db1d92e602
+		lineageTag: 64fd5372-6f15-4cf9-9eac-865bce9c5603
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [last_updated]

@@ -1,18 +1,18 @@
 table '# Use Relationships'
-	lineageTag: 3a8939bf-303d-4edb-a1c4-eee616f5cc4a
+	lineageTag: 8a978445-ed1f-4a35-bcce-e50d544b1f79
 
 	calculationGroup
 
 	column Perspectives
 		dataType: string
-		lineageTag: ba845211-ab9c-43ed-ad7c-7334b97d5ba9
+		lineageTag: ef71b216-ae8c-4bf7-8a6e-a8e5f8fdb339
 		sourceColumn: Name
 		sortByColumn: Ordinal
 
 	column Ordinal
 		dataType: int64
 		isHidden
-		lineageTag: 897885cf-3119-4892-8135-9e5d71c889a0
+		lineageTag: c9d296e9-5eeb-4893-bdb0-c7c47381d506
 		sourceColumn: Ordinal
 
 	annotation TabularEditor_TableGroup = 🧮 Calculation Groups

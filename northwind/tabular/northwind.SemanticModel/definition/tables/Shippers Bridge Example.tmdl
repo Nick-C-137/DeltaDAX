@@ -1,10 +1,10 @@
 table 'Shippers Bridge Example'
-	lineageTag: 00a12055-98a9-4278-a330-88b246a1a20a
+	lineageTag: 2f5c5520-edd1-4284-b2e4-91ab6e4bd271
 
 	column _Inferred
 		isHidden
 		displayFolder: 99. Tech
-		lineageTag: f572312c-bd15-47ec-90d8-c8970a775359
+		lineageTag: 02896e16-52b5-4dd7-a4df-ffec2035e807
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [_Inferred]
@@ -13,35 +13,35 @@ table 'Shippers Bridge Example'
 		isHidden
 		isKey
 		displayFolder: 99. Tech
-		lineageTag: 6d80b078-4fb4-4c61-b3cd-79389fa82963
+		lineageTag: 18118b86-cd90-4762-bfd7-d550bdd93091
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [_BK - Shippers Bridge Example]
 
 	column ShipperID
 		displayFolder: 03. Attributes
-		lineageTag: 14a5a384-1047-484f-84aa-dcdcbeb7ec11
+		lineageTag: 2ce701cf-546c-46e5-9ace-0176a995fa28
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [ShipperID]
 
 	column CompanyName
 		displayFolder: 03. Attributes
-		lineageTag: a6343a2a-5a0a-4be0-bb5c-959be47184e6
+		lineageTag: 0f3fd2e7-5fe8-4c4d-882f-dac2b204cc86
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [CompanyName]
 
 	column Phone
 		displayFolder: 03. Attributes
-		lineageTag: f75548ba-a911-48ec-882d-c845d194ff67
+		lineageTag: a9eea12f-5d9c-48c8-a0fe-ef57d6bfc102
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Phone]
 
 	column last_updated
 		displayFolder: 03. Attributes
-		lineageTag: 4c59164c-3919-48ca-be0a-6c194300eb33
+		lineageTag: 4cf8a6aa-2297-4edb-8b83-b40fe4083e5e
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [last_updated]

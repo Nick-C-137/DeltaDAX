@@ -34,7 +34,6 @@ ref table Products
 ref table 'Shippers Bridge Example'
 ref table Shippers
 ref table Employees
-ref table '$ Last Updated'
 ref table '# Use Relationships'
 ref table '📊 Metrics'
 ref table '📊 Metrics (local)'

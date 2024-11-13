@@ -1,10 +1,10 @@
 table Employees
-	lineageTag: fd5e4734-9fe4-4ea0-9793-bc2ac6d99856
+	lineageTag: b0bc466c-ef13-47d8-b88f-418785540a95
 
 	column _Inferred
 		isHidden
 		displayFolder: 99. Tech
-		lineageTag: af2367ac-01cc-4edd-8afb-969f9b542910
+		lineageTag: a5e5aae8-0255-4928-9114-625e7f3930b6
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [_Inferred]
@@ -13,133 +13,133 @@ table Employees
 		isHidden
 		isKey
 		displayFolder: 99. Tech
-		lineageTag: 17a93529-b7a9-4fa3-8d2b-4a23ac1c8dd5
+		lineageTag: 9e055603-544f-4ec1-bff5-b29a6995e228
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [_BK - Employees]
 
 	column EmployeeID
 		displayFolder: 03. Attributes
-		lineageTag: e7122c43-558d-4fc9-af99-68fc065897e2
+		lineageTag: 7f1c30b5-1acb-46ed-a6a0-8dd1f2c621e5
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [EmployeeID]
 
 	column LastName
 		displayFolder: 03. Attributes
-		lineageTag: 824b0f79-02f0-4118-a1f1-efa643ccdebf
+		lineageTag: 2b2a1691-7f0d-409f-b30e-bd35b92be792
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [LastName]
 
 	column FirstName
 		displayFolder: 03. Attributes
-		lineageTag: 333f30f2-8669-4706-a97a-781b45aed5c3
+		lineageTag: f51b440b-541b-4730-a9a7-4c7fb2e2af9c
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [FirstName]
 
 	column Title
 		displayFolder: 03. Attributes
-		lineageTag: ba1fa5fd-d929-4d14-9d16-c0efabb6d239
+		lineageTag: cc46a699-bdd9-49b9-aa2f-3809daa27019
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Title]
 
 	column TitleOfCourtesy
 		displayFolder: 03. Attributes
-		lineageTag: 5f865d1c-3241-4605-941f-40cbb0521c13
+		lineageTag: b3850ecf-596b-4c56-b121-62dbcad7f12a
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [TitleOfCourtesy]
 
 	column BirthDate
 		displayFolder: 03. Attributes
-		lineageTag: abc25c8c-33b2-4612-a498-b7b89b26ac2c
+		lineageTag: 91adf064-3012-4355-aca7-5af7aa3403df
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [BirthDate]
 
 	column HireDate
 		displayFolder: 03. Attributes
-		lineageTag: d8225b02-a4ab-4dd3-8520-4d0126aa7d21
+		lineageTag: 26054b78-f0ca-4a5f-bb63-ef0f8ec539e7
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [HireDate]
 
 	column Address
 		displayFolder: 03. Attributes
-		lineageTag: 72ad2acb-e10f-463f-a148-5969c0d18453
+		lineageTag: e6534481-1773-4edc-8ba1-68ccf7a150bc
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Address]
 
 	column City
 		displayFolder: 03. Attributes
-		lineageTag: b43c422d-9e30-4f58-8950-90a0d8e1a738
+		lineageTag: 07c8e3e6-9020-4a14-acd0-e75fedde8e5c
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [City]
 
 	column Region
 		displayFolder: 03. Attributes
-		lineageTag: ba6fc77c-d300-4a78-b37d-b49bf741444b
+		lineageTag: 6c70b24b-4d7c-475f-9a5b-19e3a8988105
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Region]
 
 	column PostalCode
 		displayFolder: 03. Attributes
-		lineageTag: 2a306dc0-af70-4762-9cf2-6280aca30fa5
+		lineageTag: 1a079e85-ca00-496a-a4d9-6dc8fcfcec2c
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [PostalCode]
 
 	column Country
 		displayFolder: 03. Attributes
-		lineageTag: 8af47368-705b-4ffa-9045-2c1aa19c157b
+		lineageTag: 537c35fc-7eb8-4763-90c9-93099f10d1cf
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Country]
 
 	column HomePhone
 		displayFolder: 03. Attributes
-		lineageTag: af65d1d6-ec49-48b4-93d8-78221f4767b4
+		lineageTag: 73d1c2ca-ad67-4b28-a562-e318c8e2e8e3
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [HomePhone]
 
 	column Extension
 		displayFolder: 03. Attributes
-		lineageTag: 4044793d-1fe3-40ff-bb86-64ce0c414e2c
+		lineageTag: bf6cf20f-7c0a-4685-a1b6-5a12d3894a20
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Extension]
 
 	column Notes
 		displayFolder: 03. Attributes
-		lineageTag: f4fa80ac-db33-41ac-aa6b-bea51f21cd72
+		lineageTag: 73e697d9-f0d3-4665-87ff-b4eba9a545ef
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Notes]
 
 	column ReportsTo
 		displayFolder: 03. Attributes
-		lineageTag: d314d24c-9163-4943-9ba4-d1f653ca143b
+		lineageTag: 02a0da2a-d7da-40de-b3ed-4be770ca281a
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [ReportsTo]
 
 	column PhotoPath
 		displayFolder: 03. Attributes
-		lineageTag: 32cb0af0-e0ca-4ff7-aeb4-ad832103744e
+		lineageTag: cb35e167-6e56-46b4-b5ae-4d9209670be0
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [PhotoPath]
 
 	column last_updated
 		displayFolder: 03. Attributes
-		lineageTag: e6d7aea2-af0a-46cb-a4e3-084f18ab6aa0
+		lineageTag: bf26c3b0-5762-4f41-af5f-24367f82fbe8
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [last_updated]

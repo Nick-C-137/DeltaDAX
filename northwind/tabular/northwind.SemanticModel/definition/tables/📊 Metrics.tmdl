@@ -1,81 +1,81 @@
 table '📊 Metrics'
-	lineageTag: be9cc669-edfb-473b-ac7b-d17095aa1734
+	lineageTag: 3cba1736-fb62-49e2-a3c3-8325da5b6a31
 
 	/// DeltaDAX: Add_expression_for_column ('$ Order Entries Many BKs Example'[_MS - Freight])
 	measure 'Order Entries Many BKs Example | Freight' = Add_expression_for_column ('$ Order Entries Many BKs Example'[_MS - Freight])
 		formatString: #,##0
 		displayFolder: 000. Order Entries Many BKs Example\00. Base Metrics
-		lineageTag: 41b2257a-7516-4a30-9d50-2e424368ca22
+		lineageTag: b647ffb6-9a2e-47cf-bb83-204b358708ca
 
 	/// DeltaDAX: Add_expression_for_column ('$ Order Entries Many BKs Example'[_MS - Quantity])
 	measure 'Order Entries Many BKs Example | Quantity' = Add_expression_for_column ('$ Order Entries Many BKs Example'[_MS - Quantity])
 		formatString: #,##0
 		displayFolder: 000. Order Entries Many BKs Example\00. Base Metrics
-		lineageTag: 59e51b95-7b5f-4bd4-a8bb-19aa97203a86
+		lineageTag: e9884e01-3622-49d4-9aac-bb1b26013ba7
 
 	/// DeltaDAX: Add_expression_for_column ('$ Order Entries Many BKs Example'[_MS - Discount])
 	measure 'Order Entries Many BKs Example | Discount' = Add_expression_for_column ('$ Order Entries Many BKs Example'[_MS - Discount])
 		formatString: #,##0
 		displayFolder: 000. Order Entries Many BKs Example\00. Base Metrics
-		lineageTag: f8aab864-535a-467d-84fc-6c188a1232da
+		lineageTag: 72337d61-c4e7-4515-af4d-a2bf5a263288
 
 	/// DeltaDAX: Add_expression_for_column ('$ Order Entries Many BKs Example'[_MS - Unit Price])
 	measure 'Order Entries Many BKs Example | Unit Price' = Add_expression_for_column ('$ Order Entries Many BKs Example'[_MS - Unit Price])
 		formatString: #,##0
 		displayFolder: 000. Order Entries Many BKs Example\00. Base Metrics
-		lineageTag: 651d5898-b606-48f8-865e-fb2a242d6968
+		lineageTag: cba3102d-88dc-426b-a747-f57323528ce6
 
 	/// DeltaDAX: Add_expression_for_column ('$ Order Entries'[_MS - Freight])
 	measure 'Order Entries | Freight' = Add_expression_for_column ('$ Order Entries'[_MS - Freight])
 		formatString: #,##0
 		displayFolder: 000. Order Entries\00. Base Metrics
-		lineageTag: 51b83e08-4864-4da1-8efb-110e5ffacc31
+		lineageTag: 9107d746-7a64-4e46-8863-d77be1160608
 
 	/// DeltaDAX: Add_expression_for_column ('$ Order Entries'[_MS - Quantity])
 	measure 'Order Entries | Quantity' = Add_expression_for_column ('$ Order Entries'[_MS - Quantity])
 		formatString: #,##0
 		displayFolder: 000. Order Entries\00. Base Metrics
-		lineageTag: 8225a7b0-9b80-48a9-bcc4-b0c618aed9b2
+		lineageTag: ec156ef7-3d3a-43b2-8ead-704d87c02a51
 
 	/// DeltaDAX: Add_expression_for_column ('$ Order Entries'[_MS - Discount])
 	measure 'Order Entries | Discount' = Add_expression_for_column ('$ Order Entries'[_MS - Discount])
 		formatString: #,##0
 		displayFolder: 000. Order Entries\00. Base Metrics
-		lineageTag: 7bdad906-38f4-4d92-b35a-386c0ad807e2
+		lineageTag: f306a005-dd95-4d93-bec3-d88e2b7ce30e
 
 	/// DeltaDAX: Add_expression_for_column ('$ Order Entries'[_MS - Unit Price])
 	measure 'Order Entries | Unit Price' = Add_expression_for_column ('$ Order Entries'[_MS - Unit Price])
 		formatString: #,##0
 		displayFolder: 000. Order Entries\00. Base Metrics
-		lineageTag: 8d33ccaa-b8f5-45e1-804e-56dc8930ce63
+		lineageTag: fb068a93-7c8f-40a2-bba2-414fb073777d
 
 	/// DeltaDAX: Add_expression_for_column ('$ Order Entries Many to Many Example'[_MS - Freight])
 	measure 'Order Entries Many to Many Example | Freight' = Add_expression_for_column ('$ Order Entries Many to Many Example'[_MS - Freight])
 		formatString: #,##0
 		displayFolder: 000. Order Entries Many to Many Example\00. Base Metrics
-		lineageTag: 708fb5b0-383c-4316-86e6-ec0e1e3bd2d9
+		lineageTag: 5d09e931-dcb4-4fcd-a5b6-dec9b0c7ba4e
 
 	/// DeltaDAX: Add_expression_for_column ('$ Order Entries Many to Many Example'[_MS - Quantity])
 	measure 'Order Entries Many to Many Example | Quantity' = Add_expression_for_column ('$ Order Entries Many to Many Example'[_MS - Quantity])
 		formatString: #,##0
 		displayFolder: 000. Order Entries Many to Many Example\00. Base Metrics
-		lineageTag: d8946f2b-f495-4779-ac11-71a9f2e47a6f
+		lineageTag: 3dab99bd-42ba-41fa-b688-5755d3f35457
 
 	/// DeltaDAX: Add_expression_for_column ('$ Order Entries Many to Many Example'[_MS - Discount])
 	measure 'Order Entries Many to Many Example | Discount' = Add_expression_for_column ('$ Order Entries Many to Many Example'[_MS - Discount])
 		formatString: #,##0
 		displayFolder: 000. Order Entries Many to Many Example\00. Base Metrics
-		lineageTag: f1984474-647f-4a04-8a25-006998198b47
+		lineageTag: 83692f96-6f2b-4d0f-b881-14be3f8d075d
 
 	/// DeltaDAX: Add_expression_for_column ('$ Order Entries Many to Many Example'[_MS - Unit Price])
 	measure 'Order Entries Many to Many Example | Unit Price' = Add_expression_for_column ('$ Order Entries Many to Many Example'[_MS - Unit Price])
 		formatString: #,##0
 		displayFolder: 000. Order Entries Many to Many Example\00. Base Metrics
-		lineageTag: 98b783c9-23d9-4069-b277-1e9704663b4e
+		lineageTag: 19a7d69d-7a40-4abd-9b6b-2ab3f685c05f
 
 	column z_dummy
 		isHidden
-		lineageTag: 20822909-cbe1-4cbe-a746-423cf97f810f
+		lineageTag: 473d85a7-286d-4aad-9c9b-b37ed547eef2
 		isNameInferred
 		sourceColumn: [z_dummy]
 

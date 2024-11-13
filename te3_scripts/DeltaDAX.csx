@@ -516,78 +516,78 @@ foreach (var Dim in DimensionTables) {
 /*************** CREATE FACT LAST UPDATED ************************/
 /*****************************************************************/
 
-do { //Only one loop, enables us to break out using "break" command
-var lastUpdatedTableName = "$ Last Updated";
-var lastupdatedColumnName = "last_updated";
-
-//##Check if the last updated table is relevant for current model
-	var lastUpdatedTable_exists = Model.Tables.Contains(lastUpdatedTableName);
-	var lastUpdatedTable_annotation_tabletype = "";
-	
-	//Get tabletype annotation
-	if(lastUpdatedTable_exists)
-		lastUpdatedTable_annotation_tabletype = Model.Tables[lastUpdatedTableName].Annotations[annotation_tabletype].ToString();
-	
-	//Check if the Last Updated table is already created and not "Fact_DAX" generated.
-	if ( lastUpdatedTable_exists && lastUpdatedTable_annotation_tabletype != "Fact_DAX" )
-		break;
-//##Check done
-
-//Get all tables that have columns like "last_updated"
-var tables_with_last_dates = Model.Tables.Where( t => t.Columns.Contains( lastupdatedColumnName ) );
-
-//Define DAX Skeleton of last updated dates
-var fct_dax_lastupdated_code_skeleton =
-@"SELECTCOLUMNS (
-	{
-		##table_lastupdated_rows##
-	},
-	""Table"", [Value1],
-	""last_updated"", [Value2]
-)
-";
-//Define empty string for last updated dates rows
-var var_table_lastupdated_rows = " ";
-
-//Loop all tables with column last updated
-foreach (var tbl in tables_with_last_dates) {
-	//Ignore the system table
-	if (tbl.Name == lastUpdatedTableName)
-		continue;
-
-	/* ¤¤¤ Consider adding additional information like if it is a Fact or Dimension table ¤¤¤ */
-
-	//Update the row string
-	var_table_lastupdated_rows = var_table_lastupdated_rows + $"( \"{tbl.Name}\" , MAX( '{tbl.Name}'[{lastupdatedColumnName}] ))\n\t\t,";
-}
-	
-//Cleanup rowstring after last entry
-var_table_lastupdated_rows = var_table_lastupdated_rows.Left(var_table_lastupdated_rows.Length - 1);
-
-//Check if table should be created
-if (!Model.Tables.Contains(lastUpdatedTableName) && var_table_lastupdated_rows != "")
-{
-	Model.AddCalculatedTable(lastUpdatedTableName, "");
-}
-
-//If table exists and a valid new DAX is generated
-if (Model.Tables.Contains(lastUpdatedTableName) && var_table_lastupdated_rows != "")
-{
-	Model.Tables[lastUpdatedTableName].Partitions[lastUpdatedTableName].Expression = 
-		fct_dax_lastupdated_code_skeleton.Replace(
-			"##table_lastupdated_rows##", var_table_lastupdated_rows
-	);
-	Model.Tables[lastUpdatedTableName].TableGroup = "🔢 Fact Tables";
-	Model.Tables[lastUpdatedTableName].SetAnnotation(annotation_tabletype, "Fact_DAX");
-	Model.Tables[lastUpdatedTableName].IsHidden = true;
-}
-else
-{
-	//Throw exeption if all last_updated columns have been removed while the table exists
-	throw new Exception("DeltaDAX: Last Updated Fact exists, while no 'last_updated' columns have been identified. => Please correct the error and rerun script.");
-}
-}
-while(false); //Finalize the last updated section
+//do { //Only one loop, enables us to break out using "break" command
+//var lastUpdatedTableName = "$ Last Updated";
+//var lastupdatedColumnName = "last_updated";
+//
+////##Check if the last updated table is relevant for current model
+//	var lastUpdatedTable_exists = Model.Tables.Contains(lastUpdatedTableName);
+//	var lastUpdatedTable_annotation_tabletype = "";
+//	
+//	//Get tabletype annotation
+//	if(lastUpdatedTable_exists)
+//		lastUpdatedTable_annotation_tabletype = Model.Tables[lastUpdatedTableName].Annotations[annotation_tabletype].ToString();
+//	
+//	//Check if the Last Updated table is already created and not "Fact_DAX" generated.
+//	if ( lastUpdatedTable_exists && lastUpdatedTable_annotation_tabletype != "Fact_DAX" )
+//		break;
+////##Check done
+//
+////Get all tables that have columns like "last_updated"
+//var tables_with_last_dates = Model.Tables.Where( t => t.Columns.Contains( lastupdatedColumnName ) );
+//
+////Define DAX Skeleton of last updated dates
+//var fct_dax_lastupdated_code_skeleton =
+//@"SELECTCOLUMNS (
+//	{
+//		##table_lastupdated_rows##
+//	},
+//	""Table"", [Value1],
+//	""last_updated"", [Value2]
+//)
+//";
+////Define empty string for last updated dates rows
+//var var_table_lastupdated_rows = " ";
+//
+////Loop all tables with column last updated
+//foreach (var tbl in tables_with_last_dates) {
+//	//Ignore the system table
+//	if (tbl.Name == lastUpdatedTableName)
+//		continue;
+//
+//	/* ¤¤¤ Consider adding additional information like if it is a Fact or Dimension table ¤¤¤ */
+//
+//	//Update the row string
+//	var_table_lastupdated_rows = var_table_lastupdated_rows + $"( \"{tbl.Name}\" , MAX( '{tbl.Name}'[{lastupdatedColumnName}] ))\n\t\t,";
+//}
+//	
+////Cleanup rowstring after last entry
+//var_table_lastupdated_rows = var_table_lastupdated_rows.Left(var_table_lastupdated_rows.Length - 1);
+//
+////Check if table should be created
+//if (!Model.Tables.Contains(lastUpdatedTableName) && var_table_lastupdated_rows != "")
+//{
+//	Model.AddCalculatedTable(lastUpdatedTableName, "");
+//}
+//
+////If table exists and a valid new DAX is generated
+//if (Model.Tables.Contains(lastUpdatedTableName) && var_table_lastupdated_rows != "")
+//{
+//	Model.Tables[lastUpdatedTableName].Partitions[lastUpdatedTableName].Expression = 
+//		fct_dax_lastupdated_code_skeleton.Replace(
+//			"##table_lastupdated_rows##", var_table_lastupdated_rows
+//	);
+//	Model.Tables[lastUpdatedTableName].TableGroup = "🔢 Fact Tables";
+//	Model.Tables[lastUpdatedTableName].SetAnnotation(annotation_tabletype, "Fact_DAX");
+//	Model.Tables[lastUpdatedTableName].IsHidden = true;
+//}
+//else
+//{
+//	//Throw exeption if all last_updated columns have been removed while the table exists
+//	throw new Exception("DeltaDAX: Last Updated Fact exists, while no 'last_updated' columns have been identified. => Please correct the error and rerun script.");
+//}
+//}
+//while(false); //Finalize the last updated section
 
 
 
