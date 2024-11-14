@@ -7,6 +7,9 @@
 -- Run this script in the database you want the objects to be created.
 -- Default schema is dbo.
 
+CREATE SCHEMA dwh;
+GO
+
 SET NOCOUNT ON
 GO
 

@@ -5,6 +5,7 @@
 */
 
 CREATE SCHEMA _DeltaSYS;
+GO
 
 SET NOCOUNT ON;
 
